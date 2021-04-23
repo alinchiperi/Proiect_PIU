@@ -5,12 +5,6 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proiect_PIU", "Proiect_PIU\Proiect_PIU.csproj", "{8706B243-2401-4318-BB4A-9BFEE0481D57}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C834C5EE-C065-453A-AAE8-7406DE5A12A8}"
-	ProjectSection(SolutionItems) = preProject
-		Cheltuiala.cs = Cheltuiala.cs
-		Venit.cs = Venit.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
