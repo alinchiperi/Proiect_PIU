@@ -34,8 +34,6 @@ namespace Proiect_PIU
 			provenienta = VenitAray[1];
 			valuta = VenitAray[2];
 
-
-
 		}
 
 		public string ConversieLaSir()
