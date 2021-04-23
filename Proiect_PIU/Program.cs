@@ -10,6 +10,8 @@ namespace Proiect_PIU
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("HELLO");
+            Console.ReadKey();
         }
     }
 }
