@@ -31,14 +31,15 @@ namespace Proiect_PIU
 			string[] VenitAray = text.Split(' ');
 
 			if (Single.TryParse(VenitAray[0], out suma)) ;
-	
-			provenienta = VenitAray[1];
 			valuta = VenitAray[2];
+
+			provenienta = VenitAray[1];
+			
 		}
 
 		public string ConversieLaSir()
 		{
-			string venituri = "Nu exista (Nu ati apelat metoda **setNote**)";
+			string venituri = "Nu exista";
 			if (suma == null)
 			{
 				venituri = Convert.ToString(suma);
@@ -61,5 +62,11 @@ namespace Proiect_PIU
 				status = true;
 			return status;
 		}
+		public float Suma
+        {
+			get { return suma; }
+			set { }
+			
+        }
 	}
 }
