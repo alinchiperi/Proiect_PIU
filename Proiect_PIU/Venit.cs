@@ -8,8 +8,8 @@ namespace Proiect_PIU
 {
 	public class Venit
 	{
-		private float suma;
 		private string provenienta;
+		private float suma;
 		private string valuta;
 
 		public Venit()
@@ -19,7 +19,7 @@ namespace Proiect_PIU
 			valuta = string.Empty;
 		}
 
-		public Venit(float _suma,  string _valuta, string _provenienta)
+		public Venit(string _provenienta, float _suma, string _valuta)
 		{
 			suma = _suma;
 			provenienta = _provenienta;
@@ -29,23 +29,17 @@ namespace Proiect_PIU
 		public Venit(string text)
 		{
 			string[] VenitAray = text.Split(' ');
-
-			if (Single.TryParse(VenitAray[0], out suma)) ;
-			valuta = VenitAray[2];
-
-			provenienta = VenitAray[1];
-			
+			provenienta = VenitAray[0];
+			if (float.TryParse(VenitAray[1], out suma))
+			{
+				valuta = VenitAray[2];
+			}
 		}
 
 		public string ConversieLaSir()
 		{
-			string venituri = "Nu exista";
-			if (suma == null)
-			{
-				venituri = Convert.ToString(suma);
-			}
-			string s = $"Aveti urmatorul venit {suma} {valuta}";
-
+			
+			string s = $"Aveti urmatorul venit provenit din {provenienta} {suma} {valuta}";
 			return s;
 		}
 		public static bool operator > (Venit v1, Venit v2)
@@ -66,7 +60,6 @@ namespace Proiect_PIU
         {
 			get { return suma; }
 			set { }
-			
-        }
+	    }
 	}
 }

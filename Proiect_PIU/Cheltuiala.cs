@@ -11,13 +11,11 @@ namespace Proiect_PIU
 		private string categoria;
 		private float suma;		
 		private string valuta;
-		private string importanta;
 
 		public Cheltuiala()
 		{
 			suma = 0;
-			categoria = string.Empty;
-			importanta = String.Empty;
+			categoria = string.Empty;			
 			valuta = string.Empty;
 		}
 
@@ -25,16 +23,13 @@ namespace Proiect_PIU
         {
 			string[] CheltuialaAray = text.Split(' ');
 			categoria = CheltuialaAray[0];
-			if (Single.TryParse(CheltuialaAray[0], out suma)) ;
-
-
-
+			if (float.TryParse(CheltuialaAray[1], out suma))
+			valuta = CheltuialaAray[2];
 		}
-
 		public string ConversieLaSir()
 		{
-			string venituri = "Nu exista (Nu ati apelat metoda **setNote**)";
-			if (suma == null)
+			string venituri = "Nu exista ()";
+			if (suma == 0)
 			{
 				venituri = Convert.ToString(suma);
 			}
