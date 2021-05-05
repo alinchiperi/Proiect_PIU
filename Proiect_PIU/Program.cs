@@ -11,13 +11,17 @@ namespace Proiect_PIU
         
         static void Main(string[] args)
         {
-            Venit v1 = new Venit( "Salariu",14500, "RON");
+            Venit v1 = new Venit( 14500, "RON");
             Venit v2 = new Venit("Bursa 6.000,15 RON ");
             Cheltuiala c1 = new Cheltuiala("Mancare 750 RON");
-
+            Economie e1 = new Economie("Masina 100 Ron");
             Console.WriteLine(v1.ConversieLaSir());
             Console.WriteLine(v2.ConversieLaSir());
-            Console.WriteLine(v2.Suma);
+            Console.WriteLine(c1.ConversieLaSir());
+            Console.WriteLine(e1.ConversieLaSir());
+
+            
+
             Console.ReadKey();
         }
     }

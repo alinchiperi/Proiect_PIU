@@ -35,6 +35,12 @@ namespace Proiect_PIU
 				valuta = VenitAray[2];
 			}
 		}
+		public Venit (float _suma, string _valuta)
+        {
+			provenienta = "Necunoscut";
+			suma = _suma;
+			valuta = _valuta;
+        }
 
 		public string ConversieLaSir()
 		{

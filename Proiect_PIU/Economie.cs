@@ -6,26 +6,25 @@ using System.Threading.Tasks;
 
 namespace Proiect_PIU
 {
-	public class Cheltuiala
-	{
+    class Economie
+    {
 		private string categoria;
-		private float suma;		
+		private float suma;
 		private string valuta;
-
-		public Cheltuiala()
+		public Economie()
 		{
 			suma = 0;
-			categoria = string.Empty;			
+			categoria = string.Empty;
 			valuta = string.Empty;
 		}
-
-		public Cheltuiala(string text)
-        {
+		public Economie(string text)
+		{
 			string[] CheltuialaAray = text.Split(' ');
 			categoria = CheltuialaAray[0];
 			if (float.TryParse(CheltuialaAray[1], out suma))
-			valuta = CheltuialaAray[2];
+				valuta = CheltuialaAray[2];
 		}
+
 		public string ConversieLaSir()
 		{
 			string venituri = "Nu exista ()";
@@ -33,10 +32,10 @@ namespace Proiect_PIU
 			{
 				venituri = Convert.ToString(suma);
 			}
-			string s = $"Aveti suma de platit {suma} {valuta} pentru {categoria}";
+			string s = $"Ati economisit {suma} {valuta}";
 
 			return s;
 		}
-
+		
 	}
 }
