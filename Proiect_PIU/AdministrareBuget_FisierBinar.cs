@@ -15,6 +15,10 @@ namespace Proiect_PIU
         {
             throw new Exception("Optiunea AddBuget nu este implementata");
         }
+        public ArrayList GetBugetTotal()
+        {
+            throw new Exception("Optiunea nu este implementata");
+        }
 
     }
 }
