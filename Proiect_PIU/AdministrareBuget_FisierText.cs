@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Proiect_PIU
 {
-    public class  AdministrareBuget_FisierText:IstocareData
+    public class  AdministrareBuget_FisierText : IstocareData
     {
         string NumeFisier { get; set; }
 
@@ -14,12 +14,12 @@ namespace Proiect_PIU
         {
             this.NumeFisier = numeFisier;
             Stream sFisierText = File.Open(numeFisier, FileMode.OpenOrCreate);
-            sFisierText.Close();
-
-            //liniile de mai sus pot fi inlocuite cu linia de cod urmatoare deoarece
-            //instructiunea 'using' va apela sFisierText.Close();
-            //using (Stream sFisierText = File.Open(numeFisier, FileMode.OpenOrCreate)) { }
+            sFisierText.Close();           
           
+        }
+        public void AddBuget(Buget b)
+        {
+            throw new Exception("Optiunea AddBugetnu este implementata");
         }
     }
 }

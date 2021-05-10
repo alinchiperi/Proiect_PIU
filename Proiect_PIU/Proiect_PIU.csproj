@@ -47,13 +47,11 @@
   <ItemGroup>
     <Compile Include="AdministrareBuget_FisierBinar.cs" />
     <Compile Include="AdministrareBuget_FisierText.cs" />
-    <Compile Include="Cheltuiala.cs" />
-    <Compile Include="Economie.cs" />
+    <Compile Include="Buget.cs" />
     <Compile Include="IstocareData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StocareFactory.cs" />
-    <Compile Include="Venit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
