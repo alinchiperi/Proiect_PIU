@@ -48,6 +48,7 @@
     <Compile Include="AdministrareBuget_FisierBinar.cs" />
     <Compile Include="AdministrareBuget_FisierText.cs" />
     <Compile Include="Buget.cs" />
+    <Compile Include="Enumerari.cs" />
     <Compile Include="IstocareData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

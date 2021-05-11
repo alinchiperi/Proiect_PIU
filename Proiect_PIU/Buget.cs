@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Proiect_PIU
 {
-    class Buget
+    public class Buget
     {
         private const string SEPARATOR_AFISARE = " ";
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         private const char SEPARATOR_SECUNDAR_FISIER = ' ';
-        private string Tip { get; set; }
-        private string Provenienta { get; set; }
-        private int Suma { get; set; }
-        private string Valuta { get; set; }
+        public string Tip { get; set; }
+        public string Provenienta { get; set; }
+        public int Suma { get; set; }
+        public string Valuta { get; set; }
 
         //constructori
         public Buget()
@@ -30,14 +30,14 @@ namespace Proiect_PIU
             Suma = _suma;
             Valuta = _valuta;
         }
-        public Buget(string text)
+
+        public Buget(string linieFisier)
         {
-            string[] BugetAray = text.Split(' ');
-            Tip = BugetAray[0];
-            Provenienta = BugetAray[1];
-            setSuma(BugetAray[2]);            
-            Valuta = BugetAray[3];
-            
+            string[] dateFisier = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
+            Tip = dateFisier[(int)CampuriBuget.TIP];
+            Provenienta = dateFisier[(int)CampuriBuget.PROVENIENTA];
+            setSuma((dateFisier[(int)CampuriBuget.SUMA]));
+            Valuta = dateFisier[(int)CampuriBuget.VALUTA];
         }
         
         public int setSuma(string _suma)
@@ -47,6 +47,7 @@ namespace Proiect_PIU
                 Suma = suma;
             return Suma;
         }
+        //functie pentru conversie la un sir de caractere
         public string ConversieLaSir()
         {
 
@@ -67,9 +68,14 @@ namespace Proiect_PIU
                 status = true;
             return status;
         }
+        //functie pentru a formata un buget pentru scrierea in fisier
         public string ConversieLaSir_PentruScriereInFisier()
         {
-            string s=string.Empty;
+            string sNote = string.Empty;
+            
+            string s = string.Format("{1}{0}{2}{0}{3}{0}{4}",
+                SEPARATOR_PRINCIPAL_FISIER, Tip, (Provenienta ?? " NECUNOSCUT "), Suma, Valuta );
+
             return s;
         }
     }
