@@ -23,6 +23,9 @@ namespace Proiect_PIU
         {
             throw new Exception("Optiune neimplementata");
         }
-
+        public bool UpdateBuget(Buget BugetActualizat)
+        {
+            throw new Exception("Optiune neimplementata");
+        }
     }
 }

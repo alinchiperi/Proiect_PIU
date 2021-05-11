@@ -11,5 +11,7 @@ namespace Proiect_PIU
     {
         void AddBuget(Buget b);
         ArrayList GetBugetTotal();
+        bool UpdateBuget(Buget BugetActualizat);
+        Buget GetBuget(string tip, string provenienta);
     }
 }
