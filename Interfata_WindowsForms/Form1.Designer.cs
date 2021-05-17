@@ -44,6 +44,7 @@ namespace Interfata_WindowsForms
             this.lstbAfisare = new System.Windows.Forms.ListBox();
             this.btnVenituri = new System.Windows.Forms.Button();
             this.btnCheltuieli = new System.Windows.Forms.Button();
+            this.btnEconomii = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +108,7 @@ namespace Interfata_WindowsForms
             // btnAdauga
             // 
             this.btnAdauga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAdauga.Location = new System.Drawing.Point(60, 263);
+            this.btnAdauga.Location = new System.Drawing.Point(61, 244);
             this.btnAdauga.Name = "btnAdauga";
             this.btnAdauga.Size = new System.Drawing.Size(75, 23);
             this.btnAdauga.TabIndex = 8;
@@ -117,7 +118,7 @@ namespace Interfata_WindowsForms
             // 
             // btnAfisare
             // 
-            this.btnAfisare.Location = new System.Drawing.Point(156, 263);
+            this.btnAfisare.Location = new System.Drawing.Point(156, 244);
             this.btnAfisare.Name = "btnAfisare";
             this.btnAfisare.Size = new System.Drawing.Size(75, 23);
             this.btnAfisare.TabIndex = 10;
@@ -152,7 +153,7 @@ namespace Interfata_WindowsForms
             // btnVenituri
             // 
             this.btnVenituri.BackColor = System.Drawing.Color.LightGreen;
-            this.btnVenituri.Location = new System.Drawing.Point(59, 307);
+            this.btnVenituri.Location = new System.Drawing.Point(295, 244);
             this.btnVenituri.Name = "btnVenituri";
             this.btnVenituri.Size = new System.Drawing.Size(75, 23);
             this.btnVenituri.TabIndex = 14;
@@ -164,7 +165,7 @@ namespace Interfata_WindowsForms
             // 
             this.btnCheltuieli.BackColor = System.Drawing.Color.Crimson;
             this.btnCheltuieli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCheltuieli.Location = new System.Drawing.Point(156, 307);
+            this.btnCheltuieli.Location = new System.Drawing.Point(404, 244);
             this.btnCheltuieli.Name = "btnCheltuieli";
             this.btnCheltuieli.Size = new System.Drawing.Size(75, 23);
             this.btnCheltuieli.TabIndex = 15;
@@ -172,11 +173,22 @@ namespace Interfata_WindowsForms
             this.btnCheltuieli.UseVisualStyleBackColor = false;
             this.btnCheltuieli.Click += new System.EventHandler(this.btnCheltuieli_Click);
             // 
+            // btnEconomii
+            // 
+            this.btnEconomii.Location = new System.Drawing.Point(533, 244);
+            this.btnEconomii.Name = "btnEconomii";
+            this.btnEconomii.Size = new System.Drawing.Size(75, 23);
+            this.btnEconomii.TabIndex = 16;
+            this.btnEconomii.Text = "Economii";
+            this.btnEconomii.UseVisualStyleBackColor = true;
+            this.btnEconomii.Click += new System.EventHandler(this.btnEconomii_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 450);
+            this.Controls.Add(this.btnEconomii);
             this.Controls.Add(this.btnCheltuieli);
             this.Controls.Add(this.btnVenituri);
             this.Controls.Add(this.lstbAfisare);
@@ -214,6 +226,7 @@ namespace Interfata_WindowsForms
         private System.Windows.Forms.ListBox lstbAfisare;
         private System.Windows.Forms.Button btnCheltuieli;
         private System.Windows.Forms.Button btnVenituri;
+        private System.Windows.Forms.Button btnEconomii;
     }
 }
 

@@ -34,7 +34,7 @@ namespace Interfata_WindowsForms
                 errorProvider1.SetError(tbValuta, "introduceti Valuta");
             else if (Convert.ToInt32(tbSuma.Text) < 0)
                 errorProvider1.SetError(tbSuma, "Suma trebuie sa fie pozitiva");
-            else if (ckbRon.Checked)
+           
                
 
             else
@@ -101,6 +101,22 @@ namespace Interfata_WindowsForms
                 lstbAfisare.Items.Add(linie);
             }
 
+        }
+
+        private void btnEconomii_Click(object sender, EventArgs e)
+        {
+            lstbAfisare.Items.Clear();
+            ArrayList Bugete = adminBuget.GetBugetTotal();
+            ArrayList venituri = new ArrayList();
+            foreach (Buget b in Bugete)
+                if (b.Tip == ECONOMIE)
+                    venituri.Add(b);
+
+            foreach (Buget b in venituri)
+            {
+                var linie = string.Format("{0,-5}{1,-35}{2,20}{3,10}\n", b.Tip, b.Provenienta, b.Suma, b.Valuta);
+                lstbAfisare.Items.Add(linie);
+            }
         }
     }
 }
