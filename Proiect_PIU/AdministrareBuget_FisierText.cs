@@ -64,7 +64,7 @@ namespace Proiect_PIU
             }
             return null;
         }
-        public ArrayList GetBugetTotal()
+        public ArrayList  GetBugetTotal()
         {
             ArrayList bugete = new ArrayList();
 
@@ -99,14 +99,13 @@ namespace Proiect_PIU
             bool actualizareCuSucces = false;
             try
             {
-                //instructiunea 'using' va apela la final swFisierText.Close();
-                //al doilea parametru setat la 'false' al constructorului StreamWriter indica modul 'overwrite' de deschidere al fisierului
+                
                 using (StreamWriter swFisierText = new StreamWriter(NumeFisier, false))
                 {
                     foreach (Buget buget in BugetTotal)
                     {
                         Buget BugetPentruScrisInFisier = buget;
-                        //informatiile despre studentul actualizat vor fi preluate din parametrul "studentActualizat"
+                        
                         if (buget.Provenienta== BugetActualizat.Provenienta)
                         {
                             BugetPentruScrisInFisier = BugetActualizat;
@@ -126,6 +125,35 @@ namespace Proiect_PIU
             }
 
             return actualizareCuSucces;
+        }
+        public Buget GetBuget(string tip)
+        {
+            try
+            {
+
+                using (StreamReader sr = new StreamReader(NumeFisier))
+                {
+                    string line;
+
+                    //citeste cate o linie si creaza un obiect de tip Student pe baza datelor din linia citita
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        Buget buget = new Buget(line);
+                        if (buget.Tip.Equals(tip) )
+                            return buget;
+                    }
+                }
+            }
+            catch (IOException eIO)
+            {
+                throw new Exception("Eroare la deschiderea fisierului. Mesaj: " + eIO.Message);
+            }
+            catch (Exception eGen)
+            {
+                throw new Exception("Eroare generica. Mesaj: " + eGen.Message);
+            }
+            return null;
+
         }
 
     }

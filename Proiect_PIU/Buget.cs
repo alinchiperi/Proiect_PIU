@@ -12,6 +12,7 @@ namespace Proiect_PIU
         private const string SEPARATOR_AFISARE = " ";
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         private const char SEPARATOR_SECUNDAR_FISIER = ' ';
+       
         public string Tip { get; set; }
         public string Provenienta { get; set; }
         public int Suma { get; set; }
@@ -30,7 +31,6 @@ namespace Proiect_PIU
             Suma = _suma;
             Valuta = _valuta;
         }
-
         public Buget(string linieFisier)
         {
             string[] dateFisier = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
@@ -39,7 +39,11 @@ namespace Proiect_PIU
             setSuma((dateFisier[(int)CampuriBuget.SUMA]));
             Valuta = dateFisier[(int)CampuriBuget.VALUTA];
         }
-        
+        public Buget(string _tip, string _provenienta )
+        {
+            Tip = _tip;
+            Provenienta = _provenienta;
+        }
         public int setSuma(string _suma)
         {
             int suma;
@@ -51,7 +55,7 @@ namespace Proiect_PIU
         public string ConversieLaSir()
         {
 
-            string s = $"Aveti  {Tip} provenit din {Provenienta} {Suma} {Valuta}";
+            string s = $" {Tip} provenit din {Provenienta}: {Suma} {Valuta}";
             return s;
         }
         public static bool operator > (Buget b1, Buget b2)

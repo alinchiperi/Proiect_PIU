@@ -27,5 +27,9 @@ namespace Proiect_PIU
         {
             throw new Exception("Optiune neimplementata");
         }
+        public Buget GetBuget(string tip)
+        {
+            throw new Exception("Optiune neimplementata");
+        }
     }
 }

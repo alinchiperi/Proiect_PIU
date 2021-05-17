@@ -13,5 +13,6 @@ namespace Proiect_PIU
         ArrayList GetBugetTotal();
         bool UpdateBuget(Buget BugetActualizat);
         Buget GetBuget(string tip, string provenienta);
+        Buget GetBuget(string tip);
     }
 }
