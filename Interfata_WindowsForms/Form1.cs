@@ -118,5 +118,54 @@ namespace Interfata_WindowsForms
                 lstbAfisare.Items.Add(linie);
             }
         }
+
+        private void btnVenitTotal_Click(object sender, EventArgs e)
+        {
+            tbVenitTotal.Clear();
+            ArrayList Bugete = adminBuget.GetBugetTotal();
+            ArrayList venituri = new ArrayList();
+            int suma = 0;
+            foreach (Buget b in Bugete)
+                if (b.Tip == VENIT)
+                    venituri.Add(b);
+            foreach (Buget b in venituri)
+            {
+                suma += b.Suma;
+            }
+            tbVenitTotal.Text = suma.ToString();
+        }
+
+        private void btnCheltuieliToatale_Click(object sender, EventArgs e)
+        {
+            tbCheltuieliTotale.Clear();
+            ArrayList Bugete = adminBuget.GetBugetTotal();
+            ArrayList venituri = new ArrayList();
+            int suma = 0;
+            foreach (Buget b in Bugete)
+                if (b.Tip == CHELTUIALA)
+                    venituri.Add(b);
+            foreach (Buget b in venituri)
+            {
+                suma += b.Suma;
+            }
+            tbCheltuieliTotale.Text = suma.ToString();
+
+        }
+
+        private void btnEconomiiTotale_Click(object sender, EventArgs e)
+        {
+            tbEconomiiTotale.Clear();
+            ArrayList Bugete = adminBuget.GetBugetTotal();
+            ArrayList venituri = new ArrayList();
+            int suma = 0;
+            foreach (Buget b in Bugete)
+                if (b.Tip == ECONOMIE)
+                    venituri.Add(b);
+            foreach (Buget b in venituri)
+            {
+                suma += b.Suma;
+            }
+            tbEconomiiTotale.Text = suma.ToString();
+        }
     }
 }

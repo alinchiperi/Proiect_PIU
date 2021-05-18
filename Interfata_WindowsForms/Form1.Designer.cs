@@ -45,6 +45,12 @@ namespace Interfata_WindowsForms
             this.btnVenituri = new System.Windows.Forms.Button();
             this.btnCheltuieli = new System.Windows.Forms.Button();
             this.btnEconomii = new System.Windows.Forms.Button();
+            this.btnVenitTotal = new System.Windows.Forms.Button();
+            this.tbVenitTotal = new System.Windows.Forms.TextBox();
+            this.tbCheltuieliTotale = new System.Windows.Forms.TextBox();
+            this.btnCheltuieliToatale = new System.Windows.Forms.Button();
+            this.tbEconomiiTotale = new System.Windows.Forms.TextBox();
+            this.btnEconomiiTotale = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,11 +189,68 @@ namespace Interfata_WindowsForms
             this.btnEconomii.UseVisualStyleBackColor = true;
             this.btnEconomii.Click += new System.EventHandler(this.btnEconomii_Click);
             // 
+            // btnVenitTotal
+            // 
+            this.btnVenitTotal.Location = new System.Drawing.Point(61, 317);
+            this.btnVenitTotal.Name = "btnVenitTotal";
+            this.btnVenitTotal.Size = new System.Drawing.Size(100, 23);
+            this.btnVenitTotal.TabIndex = 17;
+            this.btnVenitTotal.Text = "Venit Total";
+            this.btnVenitTotal.UseVisualStyleBackColor = true;
+            this.btnVenitTotal.Click += new System.EventHandler(this.btnVenitTotal_Click);
+            // 
+            // tbVenitTotal
+            // 
+            this.tbVenitTotal.Location = new System.Drawing.Point(61, 346);
+            this.tbVenitTotal.Name = "tbVenitTotal";
+            this.tbVenitTotal.Size = new System.Drawing.Size(100, 20);
+            this.tbVenitTotal.TabIndex = 18;
+            // 
+            // tbCheltuieliTotale
+            // 
+            this.tbCheltuieliTotale.Location = new System.Drawing.Point(167, 346);
+            this.tbCheltuieliTotale.Name = "tbCheltuieliTotale";
+            this.tbCheltuieliTotale.Size = new System.Drawing.Size(100, 20);
+            this.tbCheltuieliTotale.TabIndex = 20;
+            // 
+            // btnCheltuieliToatale
+            // 
+            this.btnCheltuieliToatale.Location = new System.Drawing.Point(167, 317);
+            this.btnCheltuieliToatale.Name = "btnCheltuieliToatale";
+            this.btnCheltuieliToatale.Size = new System.Drawing.Size(100, 23);
+            this.btnCheltuieliToatale.TabIndex = 19;
+            this.btnCheltuieliToatale.Text = "Cheltuieli Totale";
+            this.btnCheltuieliToatale.UseVisualStyleBackColor = true;
+            this.btnCheltuieliToatale.Click += new System.EventHandler(this.btnCheltuieliToatale_Click);
+            // 
+            // tbEconomiiTotale
+            // 
+            this.tbEconomiiTotale.Location = new System.Drawing.Point(273, 346);
+            this.tbEconomiiTotale.Name = "tbEconomiiTotale";
+            this.tbEconomiiTotale.Size = new System.Drawing.Size(100, 20);
+            this.tbEconomiiTotale.TabIndex = 22;
+            // 
+            // btnEconomiiTotale
+            // 
+            this.btnEconomiiTotale.Location = new System.Drawing.Point(273, 317);
+            this.btnEconomiiTotale.Name = "btnEconomiiTotale";
+            this.btnEconomiiTotale.Size = new System.Drawing.Size(100, 23);
+            this.btnEconomiiTotale.TabIndex = 21;
+            this.btnEconomiiTotale.Text = "Economii Totale";
+            this.btnEconomiiTotale.UseVisualStyleBackColor = true;
+            this.btnEconomiiTotale.Click += new System.EventHandler(this.btnEconomiiTotale_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 450);
+            this.ClientSize = new System.Drawing.Size(916, 492);
+            this.Controls.Add(this.tbEconomiiTotale);
+            this.Controls.Add(this.btnEconomiiTotale);
+            this.Controls.Add(this.tbCheltuieliTotale);
+            this.Controls.Add(this.btnCheltuieliToatale);
+            this.Controls.Add(this.tbVenitTotal);
+            this.Controls.Add(this.btnVenitTotal);
             this.Controls.Add(this.btnEconomii);
             this.Controls.Add(this.btnCheltuieli);
             this.Controls.Add(this.btnVenituri);
@@ -227,6 +290,12 @@ namespace Interfata_WindowsForms
         private System.Windows.Forms.Button btnCheltuieli;
         private System.Windows.Forms.Button btnVenituri;
         private System.Windows.Forms.Button btnEconomii;
+        private System.Windows.Forms.TextBox tbVenitTotal;
+        private System.Windows.Forms.Button btnVenitTotal;
+        private System.Windows.Forms.TextBox tbCheltuieliTotale;
+        private System.Windows.Forms.Button btnCheltuieliToatale;
+        private System.Windows.Forms.TextBox tbEconomiiTotale;
+        private System.Windows.Forms.Button btnEconomiiTotale;
     }
 }
 
