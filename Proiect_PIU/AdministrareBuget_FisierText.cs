@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Proiect_PIU
 {
-    public class  AdministrareBuget_FisierText : IstocareData
+    public class AdministrareBuget_FisierText : IstocareData
     {
         string NumeFisier { get; set; }
 
@@ -14,14 +14,14 @@ namespace Proiect_PIU
         {
             this.NumeFisier = numeFisier;
             Stream sFisierText = File.Open(numeFisier, FileMode.OpenOrCreate);
-            sFisierText.Close();           
-          
+            sFisierText.Close();
+
         }
         public void AddBuget(Buget b)
         {
             try
             {
-               
+
                 using (StreamWriter swFisierText = new StreamWriter(NumeFisier, true))
                 {
                     swFisierText.WriteLine(b.ConversieLaSir_PentruScriereInFisier());
@@ -40,7 +40,7 @@ namespace Proiect_PIU
         {
             try
             {
-                
+
                 using (StreamReader sr = new StreamReader(NumeFisier))
                 {
                     string line;
@@ -48,7 +48,7 @@ namespace Proiect_PIU
                     //citeste cate o linie si creaza un obiect de tip Student pe baza datelor din linia citita
                     while ((line = sr.ReadLine()) != null)
                     {
-                       Buget buget= new Buget(line);
+                        Buget buget = new Buget(line);
                         if (buget.Tip.Equals(tip) && buget.Provenienta.Equals(provenienta))
                             return buget;
                     }
@@ -64,21 +64,21 @@ namespace Proiect_PIU
             }
             return null;
         }
-        public ArrayList  GetBugetTotal()
+        public ArrayList GetBugetTotal()
         {
             ArrayList bugete = new ArrayList();
 
             try
             {
-                
+
                 using (StreamReader sr = new StreamReader(NumeFisier))
                 {
                     string line;
-                    
+
                     while ((line = sr.ReadLine()) != null)
                     {
-                        Buget studentDinFisier = new Buget(line);
-                        bugete.Add(studentDinFisier);
+                        Buget bugetDinFisier = new Buget(line);
+                        bugete.Add(bugetDinFisier);
                     }
                 }
             }
@@ -99,14 +99,14 @@ namespace Proiect_PIU
             bool actualizareCuSucces = false;
             try
             {
-                
+
                 using (StreamWriter swFisierText = new StreamWriter(NumeFisier, false))
                 {
                     foreach (Buget buget in BugetTotal)
                     {
                         Buget BugetPentruScrisInFisier = buget;
-                        
-                        if (buget.Provenienta== BugetActualizat.Provenienta)
+
+                        if (buget.Provenienta == BugetActualizat.Provenienta)
                         {
                             BugetPentruScrisInFisier = BugetActualizat;
                         }
@@ -139,7 +139,7 @@ namespace Proiect_PIU
                     while ((line = sr.ReadLine()) != null)
                     {
                         Buget buget = new Buget(line);
-                        if (buget.Tip.Equals(tip) )
+                        if (buget.Tip.Equals(tip))
                             return buget;
                     }
                 }
@@ -155,6 +155,38 @@ namespace Proiect_PIU
             return null;
 
         }
+        public ArrayList GetBugetTotal(string tip)
+        {
+            ArrayList bugete = new ArrayList();
+
+            try
+            {
+
+                using (StreamReader sr = new StreamReader(NumeFisier))
+                {
+                    string line;
+
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        Buget bugetDinFisier = new Buget(line);
+                        if(bugetDinFisier.Tip.Equals(tip))
+                        bugete.Add(bugetDinFisier);
+                    }
+                }
+            }
+            catch (IOException eIO)
+            {
+                throw new Exception("Eroare la deschiderea fisierului. Mesaj: " + eIO.Message);
+            }
+            catch (Exception eGen)
+            {
+                throw new Exception("Eroare generica. Mesaj: " + eGen.Message);
+            }
+
+            return bugete;
+        }
 
     }
+
 }
+

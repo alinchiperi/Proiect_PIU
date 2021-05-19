@@ -8,4 +8,10 @@ namespace Proiect_PIU
         SUMA=2,
         VALUTA=3
     };
+    public enum Valuta
+    {
+        Ron=1,
+        Euro=2,
+        Dolari=3
+    };
 }

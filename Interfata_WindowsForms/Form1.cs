@@ -24,30 +24,14 @@ namespace Interfata_WindowsForms
 
         private void btnAdauga_Click(object sender, EventArgs e)
         {
-            if (tbTip.Text == "")
-                errorProvider1.SetError(tbTip, "selectati tipul");
-            else if (tbProvenienta.Text == "")
-                errorProvider1.SetError(tbProvenienta, "Introduceti Provenienta");
-            else if (tbSuma.Text == "")
-                errorProvider1.SetError(tbSuma, "Introduceti suma de bani");
-            else if (tbValuta.Text == "")
-                errorProvider1.SetError(tbValuta, "introduceti Valuta");
-            else if (Convert.ToInt32(tbSuma.Text) < 0)
-                errorProvider1.SetError(tbSuma, "Suma trebuie sa fie pozitiva");
-           
-               
-
-            else
+            if (ValidareDateIntrare())
             {
                 try
                 {
 
-                    Buget buget = new Buget(tbTip.Text, tbProvenienta.Text);
-                    /* Buget buget = new Buget();
-                     buget.Tip = tbTip.Text;
-                     buget.Provenienta = tbProvenienta.Text;*/
+                    Buget buget = new Buget(cbTip.Text, tbProvenienta.Text);                  
                     buget.setSuma(tbSuma.Text);
-                    buget.Valuta = tbValuta.Text;
+                    buget.Valuta = GetValuta();
                     adminBuget.AddBuget(buget);
                 }
                 catch (FormatException exe)
@@ -55,6 +39,30 @@ namespace Interfata_WindowsForms
                     MessageBox.Show("Error catch", exe.Message);
                 }
             }
+            
+        }
+        public bool ValidareDateIntrare()
+        {
+            bool status = true;
+            if (cbTip.Text == "")
+            { errorProvider1.SetError(cbTip, "selectati tipul"); status = false; }
+            else if (tbProvenienta.Text == "")
+            { errorProvider1.SetError(tbProvenienta, "Introduceti Provenienta"); status = false; }
+            else if (tbSuma.Text == "")
+            { errorProvider1.SetError(tbSuma, "Introduceti suma de bani"); status = false; }    
+            else if(Convert.ToInt32( tbSuma.Text)<0)
+            { errorProvider1.SetError(tbSuma, "Suma trebuie sa fie pozitiva"); status = false; }
+            return status;
+        }
+        private String GetValuta()
+        {
+            if (rdbRon.Checked)
+                return rdbRon.Text;
+            if (rdbEuro.Checked)
+                return rdbEuro.Text;
+            if (rdbDolari.Checked)
+                return rdbDolari.Text;
+            return null;
         }
 
         private void btnAfisare_Click(object sender, EventArgs e)
@@ -71,52 +79,27 @@ namespace Interfata_WindowsForms
 
         private void btnVenituri_Click(object sender, EventArgs e)
         {
-            lstbAfisare.Items.Clear();
-            ArrayList Bugete = adminBuget.GetBugetTotal();
-            ArrayList venituri = new ArrayList();
-           foreach(Buget b in Bugete)
-                if(b.Tip==VENIT)
-                venituri.Add(b);
-
-            foreach (Buget b in venituri)
-            {
-                var linie = string.Format("{0,-5}{1,-35}{2,20}{3,10}\n", b.Tip, b.Provenienta, b.Suma, b.Valuta);
-                lstbAfisare.Items.Add(linie);
-            }
+            dgwDate.DataSource = null;
+            dgwDate.Refresh();
+            ArrayList venituri = adminBuget.GetBugetTotal(VENIT);
+            dgwDate.DataSource=venituri;
 
         }
 
         private void btnCheltuieli_Click(object sender, EventArgs e)
         {
-            lstbAfisare.Items.Clear();
-            ArrayList Bugete = adminBuget.GetBugetTotal();
-            ArrayList venituri = new ArrayList();
-            foreach (Buget b in Bugete)
-                if (b.Tip == CHELTUIALA)
-                    venituri.Add(b);
-
-            foreach (Buget b in venituri)
-            {
-                var linie = string.Format("{0,-5}{1,-35}{2,20}{3,10}\n", b.Tip, b.Provenienta, b.Suma, b.Valuta);
-                lstbAfisare.Items.Add(linie);
-            }
+            dgwDate.DataSource = null;
+            dgwDate.Refresh();
+            ArrayList venituri = adminBuget.GetBugetTotal(CHELTUIALA);
+            dgwDate.DataSource = venituri;
 
         }
-
         private void btnEconomii_Click(object sender, EventArgs e)
         {
-            lstbAfisare.Items.Clear();
-            ArrayList Bugete = adminBuget.GetBugetTotal();
-            ArrayList venituri = new ArrayList();
-            foreach (Buget b in Bugete)
-                if (b.Tip == ECONOMIE)
-                    venituri.Add(b);
-
-            foreach (Buget b in venituri)
-            {
-                var linie = string.Format("{0,-5}{1,-35}{2,20}{3,10}\n", b.Tip, b.Provenienta, b.Suma, b.Valuta);
-                lstbAfisare.Items.Add(linie);
-            }
+            dgwDate.DataSource = null;
+            dgwDate.Refresh();
+            ArrayList venituri = adminBuget.GetBugetTotal(ECONOMIE);
+            dgwDate.DataSource = venituri;
         }
 
         private void btnVenitTotal_Click(object sender, EventArgs e)
@@ -166,6 +149,11 @@ namespace Interfata_WindowsForms
                 suma += b.Suma;
             }
             tbEconomiiTotale.Text = suma.ToString();
+        }
+
+        private void lstbAfisare_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

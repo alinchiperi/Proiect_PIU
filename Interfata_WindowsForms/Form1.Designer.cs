@@ -36,11 +36,10 @@ namespace Interfata_WindowsForms
             this.lblValuta = new System.Windows.Forms.Label();
             this.tbProvenienta = new System.Windows.Forms.TextBox();
             this.tbSuma = new System.Windows.Forms.TextBox();
-            this.tbValuta = new System.Windows.Forms.TextBox();
             this.btnAdauga = new System.Windows.Forms.Button();
             this.btnAfisare = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tbTip = new System.Windows.Forms.ComboBox();
+            this.cbTip = new System.Windows.Forms.ComboBox();
             this.lstbAfisare = new System.Windows.Forms.ListBox();
             this.btnVenituri = new System.Windows.Forms.Button();
             this.btnCheltuieli = new System.Windows.Forms.Button();
@@ -51,7 +50,14 @@ namespace Interfata_WindowsForms
             this.btnCheltuieliToatale = new System.Windows.Forms.Button();
             this.tbEconomiiTotale = new System.Windows.Forms.TextBox();
             this.btnEconomiiTotale = new System.Windows.Forms.Button();
+            this.gbValuta = new System.Windows.Forms.GroupBox();
+            this.rdbRon = new System.Windows.Forms.RadioButton();
+            this.rdbEuro = new System.Windows.Forms.RadioButton();
+            this.rdbDolari = new System.Windows.Forms.RadioButton();
+            this.dgwDate = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.gbValuta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwDate)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTip
@@ -104,17 +110,10 @@ namespace Interfata_WindowsForms
             this.tbSuma.Size = new System.Drawing.Size(100, 20);
             this.tbSuma.TabIndex = 6;
             // 
-            // tbValuta
-            // 
-            this.tbValuta.Location = new System.Drawing.Point(131, 136);
-            this.tbValuta.Name = "tbValuta";
-            this.tbValuta.Size = new System.Drawing.Size(100, 20);
-            this.tbValuta.TabIndex = 7;
-            // 
             // btnAdauga
             // 
             this.btnAdauga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAdauga.Location = new System.Drawing.Point(61, 244);
+            this.btnAdauga.Location = new System.Drawing.Point(248, 180);
             this.btnAdauga.Name = "btnAdauga";
             this.btnAdauga.Size = new System.Drawing.Size(75, 23);
             this.btnAdauga.TabIndex = 8;
@@ -124,7 +123,7 @@ namespace Interfata_WindowsForms
             // 
             // btnAfisare
             // 
-            this.btnAfisare.Location = new System.Drawing.Point(156, 244);
+            this.btnAfisare.Location = new System.Drawing.Point(329, 180);
             this.btnAfisare.Name = "btnAfisare";
             this.btnAfisare.Size = new System.Drawing.Size(75, 23);
             this.btnAfisare.TabIndex = 10;
@@ -136,30 +135,31 @@ namespace Interfata_WindowsForms
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // tbTip
+            // cbTip
             // 
-            this.tbTip.FormattingEnabled = true;
-            this.tbTip.Items.AddRange(new object[] {
+            this.cbTip.FormattingEnabled = true;
+            this.cbTip.Items.AddRange(new object[] {
             "Venit",
             "Cheltuiala",
             "Economie"});
-            this.tbTip.Location = new System.Drawing.Point(131, 41);
-            this.tbTip.Name = "tbTip";
-            this.tbTip.Size = new System.Drawing.Size(100, 21);
-            this.tbTip.TabIndex = 11;
+            this.cbTip.Location = new System.Drawing.Point(131, 41);
+            this.cbTip.Name = "cbTip";
+            this.cbTip.Size = new System.Drawing.Size(100, 21);
+            this.cbTip.TabIndex = 11;
             // 
             // lstbAfisare
             // 
             this.lstbAfisare.FormattingEnabled = true;
-            this.lstbAfisare.Location = new System.Drawing.Point(286, 27);
+            this.lstbAfisare.Location = new System.Drawing.Point(248, 27);
             this.lstbAfisare.Name = "lstbAfisare";
-            this.lstbAfisare.Size = new System.Drawing.Size(380, 186);
+            this.lstbAfisare.Size = new System.Drawing.Size(392, 147);
             this.lstbAfisare.TabIndex = 13;
+            this.lstbAfisare.SelectedIndexChanged += new System.EventHandler(this.lstbAfisare_SelectedIndexChanged);
             // 
             // btnVenituri
             // 
             this.btnVenituri.BackColor = System.Drawing.Color.LightGreen;
-            this.btnVenituri.Location = new System.Drawing.Point(295, 244);
+            this.btnVenituri.Location = new System.Drawing.Point(61, 315);
             this.btnVenituri.Name = "btnVenituri";
             this.btnVenituri.Size = new System.Drawing.Size(75, 23);
             this.btnVenituri.TabIndex = 14;
@@ -171,7 +171,7 @@ namespace Interfata_WindowsForms
             // 
             this.btnCheltuieli.BackColor = System.Drawing.Color.Crimson;
             this.btnCheltuieli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCheltuieli.Location = new System.Drawing.Point(404, 244);
+            this.btnCheltuieli.Location = new System.Drawing.Point(156, 315);
             this.btnCheltuieli.Name = "btnCheltuieli";
             this.btnCheltuieli.Size = new System.Drawing.Size(75, 23);
             this.btnCheltuieli.TabIndex = 15;
@@ -181,7 +181,7 @@ namespace Interfata_WindowsForms
             // 
             // btnEconomii
             // 
-            this.btnEconomii.Location = new System.Drawing.Point(533, 244);
+            this.btnEconomii.Location = new System.Drawing.Point(60, 359);
             this.btnEconomii.Name = "btnEconomii";
             this.btnEconomii.Size = new System.Drawing.Size(75, 23);
             this.btnEconomii.TabIndex = 16;
@@ -191,7 +191,7 @@ namespace Interfata_WindowsForms
             // 
             // btnVenitTotal
             // 
-            this.btnVenitTotal.Location = new System.Drawing.Point(61, 317);
+            this.btnVenitTotal.Location = new System.Drawing.Point(673, 31);
             this.btnVenitTotal.Name = "btnVenitTotal";
             this.btnVenitTotal.Size = new System.Drawing.Size(100, 23);
             this.btnVenitTotal.TabIndex = 17;
@@ -201,21 +201,21 @@ namespace Interfata_WindowsForms
             // 
             // tbVenitTotal
             // 
-            this.tbVenitTotal.Location = new System.Drawing.Point(61, 346);
+            this.tbVenitTotal.Location = new System.Drawing.Point(673, 60);
             this.tbVenitTotal.Name = "tbVenitTotal";
             this.tbVenitTotal.Size = new System.Drawing.Size(100, 20);
             this.tbVenitTotal.TabIndex = 18;
             // 
             // tbCheltuieliTotale
             // 
-            this.tbCheltuieliTotale.Location = new System.Drawing.Point(167, 346);
+            this.tbCheltuieliTotale.Location = new System.Drawing.Point(779, 60);
             this.tbCheltuieliTotale.Name = "tbCheltuieliTotale";
             this.tbCheltuieliTotale.Size = new System.Drawing.Size(100, 20);
             this.tbCheltuieliTotale.TabIndex = 20;
             // 
             // btnCheltuieliToatale
             // 
-            this.btnCheltuieliToatale.Location = new System.Drawing.Point(167, 317);
+            this.btnCheltuieliToatale.Location = new System.Drawing.Point(779, 31);
             this.btnCheltuieliToatale.Name = "btnCheltuieliToatale";
             this.btnCheltuieliToatale.Size = new System.Drawing.Size(100, 23);
             this.btnCheltuieliToatale.TabIndex = 19;
@@ -225,14 +225,14 @@ namespace Interfata_WindowsForms
             // 
             // tbEconomiiTotale
             // 
-            this.tbEconomiiTotale.Location = new System.Drawing.Point(273, 346);
+            this.tbEconomiiTotale.Location = new System.Drawing.Point(885, 60);
             this.tbEconomiiTotale.Name = "tbEconomiiTotale";
             this.tbEconomiiTotale.Size = new System.Drawing.Size(100, 20);
             this.tbEconomiiTotale.TabIndex = 22;
             // 
             // btnEconomiiTotale
             // 
-            this.btnEconomiiTotale.Location = new System.Drawing.Point(273, 317);
+            this.btnEconomiiTotale.Location = new System.Drawing.Point(885, 31);
             this.btnEconomiiTotale.Name = "btnEconomiiTotale";
             this.btnEconomiiTotale.Size = new System.Drawing.Size(100, 23);
             this.btnEconomiiTotale.TabIndex = 21;
@@ -240,11 +240,65 @@ namespace Interfata_WindowsForms
             this.btnEconomiiTotale.UseVisualStyleBackColor = true;
             this.btnEconomiiTotale.Click += new System.EventHandler(this.btnEconomiiTotale_Click);
             // 
+            // gbValuta
+            // 
+            this.gbValuta.Controls.Add(this.rdbDolari);
+            this.gbValuta.Controls.Add(this.rdbEuro);
+            this.gbValuta.Controls.Add(this.rdbRon);
+            this.gbValuta.Location = new System.Drawing.Point(131, 140);
+            this.gbValuta.Name = "gbValuta";
+            this.gbValuta.Size = new System.Drawing.Size(100, 61);
+            this.gbValuta.TabIndex = 23;
+            this.gbValuta.TabStop = false;
+            // 
+            // rdbRon
+            // 
+            this.rdbRon.AutoSize = true;
+            this.rdbRon.Location = new System.Drawing.Point(3, 16);
+            this.rdbRon.Name = "rdbRon";
+            this.rdbRon.Size = new System.Drawing.Size(45, 17);
+            this.rdbRon.TabIndex = 0;
+            this.rdbRon.TabStop = true;
+            this.rdbRon.Text = "Ron";
+            this.rdbRon.UseVisualStyleBackColor = true;
+            // 
+            // rdbEuro
+            // 
+            this.rdbEuro.AutoSize = true;
+            this.rdbEuro.Location = new System.Drawing.Point(53, 17);
+            this.rdbEuro.Name = "rdbEuro";
+            this.rdbEuro.Size = new System.Drawing.Size(47, 17);
+            this.rdbEuro.TabIndex = 1;
+            this.rdbEuro.TabStop = true;
+            this.rdbEuro.Text = "Euro";
+            this.rdbEuro.UseVisualStyleBackColor = true;
+            // 
+            // rdbDolari
+            // 
+            this.rdbDolari.AutoSize = true;
+            this.rdbDolari.Location = new System.Drawing.Point(25, 40);
+            this.rdbDolari.Name = "rdbDolari";
+            this.rdbDolari.Size = new System.Drawing.Size(52, 17);
+            this.rdbDolari.TabIndex = 2;
+            this.rdbDolari.TabStop = true;
+            this.rdbDolari.Text = "Dolari";
+            this.rdbDolari.UseVisualStyleBackColor = true;
+            // 
+            // dgwDate
+            // 
+            this.dgwDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwDate.Location = new System.Drawing.Point(248, 301);
+            this.dgwDate.Name = "dgwDate";
+            this.dgwDate.Size = new System.Drawing.Size(392, 150);
+            this.dgwDate.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 492);
+            this.ClientSize = new System.Drawing.Size(1005, 587);
+            this.Controls.Add(this.dgwDate);
+            this.Controls.Add(this.gbValuta);
             this.Controls.Add(this.tbEconomiiTotale);
             this.Controls.Add(this.btnEconomiiTotale);
             this.Controls.Add(this.tbCheltuieliTotale);
@@ -255,10 +309,9 @@ namespace Interfata_WindowsForms
             this.Controls.Add(this.btnCheltuieli);
             this.Controls.Add(this.btnVenituri);
             this.Controls.Add(this.lstbAfisare);
-            this.Controls.Add(this.tbTip);
+            this.Controls.Add(this.cbTip);
             this.Controls.Add(this.btnAfisare);
             this.Controls.Add(this.btnAdauga);
-            this.Controls.Add(this.tbValuta);
             this.Controls.Add(this.tbSuma);
             this.Controls.Add(this.tbProvenienta);
             this.Controls.Add(this.lblValuta);
@@ -268,6 +321,9 @@ namespace Interfata_WindowsForms
             this.Name = "Form1";
             this.Text = "Aplicatie venit";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.gbValuta.ResumeLayout(false);
+            this.gbValuta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwDate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,11 +337,10 @@ namespace Interfata_WindowsForms
         private System.Windows.Forms.Label lblValuta;
         private System.Windows.Forms.TextBox tbProvenienta;
         private System.Windows.Forms.TextBox tbSuma;
-        private System.Windows.Forms.TextBox tbValuta;
         private System.Windows.Forms.Button btnAdauga;
         private System.Windows.Forms.Button btnAfisare;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ComboBox tbTip;
+        private System.Windows.Forms.ComboBox cbTip;
         private System.Windows.Forms.ListBox lstbAfisare;
         private System.Windows.Forms.Button btnCheltuieli;
         private System.Windows.Forms.Button btnVenituri;
@@ -296,6 +351,11 @@ namespace Interfata_WindowsForms
         private System.Windows.Forms.Button btnCheltuieliToatale;
         private System.Windows.Forms.TextBox tbEconomiiTotale;
         private System.Windows.Forms.Button btnEconomiiTotale;
+        private System.Windows.Forms.GroupBox gbValuta;
+        private System.Windows.Forms.RadioButton rdbDolari;
+        private System.Windows.Forms.RadioButton rdbEuro;
+        private System.Windows.Forms.RadioButton rdbRon;
+        private System.Windows.Forms.DataGridView dgwDate;
     }
 }
 
