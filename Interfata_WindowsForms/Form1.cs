@@ -29,7 +29,7 @@ namespace Interfata_WindowsForms
             {
                 try
                 {
-
+                    
                     Buget buget = new Buget(cbTip.Text, tbProvenienta.Text);                  
                     buget.setSuma(tbSuma.Text);
                     buget.Valuta = GetValuta();
@@ -48,13 +48,17 @@ namespace Interfata_WindowsForms
             bool status = true;
             if (cbTip.Text == "")
             { errorProvider1.SetError(cbTip, "selectati tipul"); status = false; }
-            else if (tbProvenienta.Text == "")
+            else if (tbProvenienta.Text == "" )
             { errorProvider1.SetError(tbProvenienta, "Introduceti Provenienta"); status = false; }
             else if (tbSuma.Text == "")
             { errorProvider1.SetError(tbSuma, "Introduceti suma de bani"); status = false; }    
             else if(Convert.ToInt32( tbSuma.Text)<0)
             { errorProvider1.SetError(tbSuma, "Suma trebuie sa fie pozitiva"); status = false; }
             return status;
+        }
+        public void ResetareButoane()
+        {
+
         }
         private String GetValuta()
         {
@@ -104,55 +108,6 @@ namespace Interfata_WindowsForms
             dgwDate.DataSource = venituri;
         }
 
-        private void btnVenitTotal_Click(object sender, EventArgs e)
-        {
-            tbVenitTotal.Clear();
-            ArrayList Bugete = adminBuget.GetBugetTotal();
-            ArrayList venituri = new ArrayList();
-            int suma = 0;
-            foreach (Buget b in Bugete)
-                if (b.Tip == VENIT)
-                    venituri.Add(b);
-            foreach (Buget b in venituri)
-            {
-                suma += b.Suma;
-            }
-            tbVenitTotal.Text = suma.ToString();
-        }
-
-        private void btnCheltuieliToatale_Click(object sender, EventArgs e)
-        {
-            tbCheltuieliTotale.Clear();
-            ArrayList Bugete = adminBuget.GetBugetTotal();
-            ArrayList venituri = new ArrayList();
-            int suma = 0;
-            foreach (Buget b in Bugete)
-                if (b.Tip == CHELTUIALA)
-                    venituri.Add(b);
-            foreach (Buget b in venituri)
-            {
-                suma += b.Suma;
-            }
-            tbCheltuieliTotale.Text = suma.ToString();
-
-        }
-
-        private void btnEconomiiTotale_Click(object sender, EventArgs e)
-        {
-            tbEconomiiTotale.Clear();
-            ArrayList Bugete = adminBuget.GetBugetTotal();
-            ArrayList venituri = new ArrayList();
-            int suma = 0;
-            foreach (Buget b in Bugete)
-                if (b.Tip == ECONOMIE)
-                    venituri.Add(b);
-            foreach (Buget b in venituri)
-            {
-                suma += b.Suma;
-            }
-            tbEconomiiTotale.Text = suma.ToString();
-        }
-
         private void lstbAfisare_SelectedIndexChanged(object sender, EventArgs e)
         {
             string curItem =lstbAfisare.SelectedItem.ToString();
@@ -199,6 +154,12 @@ namespace Interfata_WindowsForms
                 }
                
             }
+        }
+
+        private void btnBilant_Click(object sender, EventArgs e)
+        {
+            Bilant bilant = new Bilant();
+            bilant.Show();
         }
     }
 }
