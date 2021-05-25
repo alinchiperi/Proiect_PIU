@@ -51,10 +51,12 @@ namespace Interfata_WindowsForms
             this.tbEconomiiTotale = new System.Windows.Forms.TextBox();
             this.btnEconomiiTotale = new System.Windows.Forms.Button();
             this.gbValuta = new System.Windows.Forms.GroupBox();
-            this.rdbRon = new System.Windows.Forms.RadioButton();
-            this.rdbEuro = new System.Windows.Forms.RadioButton();
             this.rdbDolari = new System.Windows.Forms.RadioButton();
+            this.rdbEuro = new System.Windows.Forms.RadioButton();
+            this.rdbRon = new System.Windows.Forms.RadioButton();
             this.dgwDate = new System.Windows.Forms.DataGridView();
+            this.btnModifica = new System.Windows.Forms.Button();
+            this.btnSalveaza = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbValuta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwDate)).BeginInit();
@@ -81,7 +83,7 @@ namespace Interfata_WindowsForms
             // lblSuma
             // 
             this.lblSuma.AutoSize = true;
-            this.lblSuma.Location = new System.Drawing.Point(58, 108);
+            this.lblSuma.Location = new System.Drawing.Point(58, 99);
             this.lblSuma.Name = "lblSuma";
             this.lblSuma.Size = new System.Drawing.Size(34, 13);
             this.lblSuma.TabIndex = 2;
@@ -90,7 +92,7 @@ namespace Interfata_WindowsForms
             // lblValuta
             // 
             this.lblValuta.AutoSize = true;
-            this.lblValuta.Location = new System.Drawing.Point(57, 139);
+            this.lblValuta.Location = new System.Drawing.Point(57, 130);
             this.lblValuta.Name = "lblValuta";
             this.lblValuta.Size = new System.Drawing.Size(37, 13);
             this.lblValuta.TabIndex = 3;
@@ -105,7 +107,7 @@ namespace Interfata_WindowsForms
             // 
             // tbSuma
             // 
-            this.tbSuma.Location = new System.Drawing.Point(131, 105);
+            this.tbSuma.Location = new System.Drawing.Point(131, 96);
             this.tbSuma.Name = "tbSuma";
             this.tbSuma.Size = new System.Drawing.Size(100, 20);
             this.tbSuma.TabIndex = 6;
@@ -245,33 +247,11 @@ namespace Interfata_WindowsForms
             this.gbValuta.Controls.Add(this.rdbDolari);
             this.gbValuta.Controls.Add(this.rdbEuro);
             this.gbValuta.Controls.Add(this.rdbRon);
-            this.gbValuta.Location = new System.Drawing.Point(131, 140);
+            this.gbValuta.Location = new System.Drawing.Point(131, 131);
             this.gbValuta.Name = "gbValuta";
             this.gbValuta.Size = new System.Drawing.Size(100, 61);
             this.gbValuta.TabIndex = 23;
             this.gbValuta.TabStop = false;
-            // 
-            // rdbRon
-            // 
-            this.rdbRon.AutoSize = true;
-            this.rdbRon.Location = new System.Drawing.Point(3, 16);
-            this.rdbRon.Name = "rdbRon";
-            this.rdbRon.Size = new System.Drawing.Size(45, 17);
-            this.rdbRon.TabIndex = 0;
-            this.rdbRon.TabStop = true;
-            this.rdbRon.Text = "Ron";
-            this.rdbRon.UseVisualStyleBackColor = true;
-            // 
-            // rdbEuro
-            // 
-            this.rdbEuro.AutoSize = true;
-            this.rdbEuro.Location = new System.Drawing.Point(53, 17);
-            this.rdbEuro.Name = "rdbEuro";
-            this.rdbEuro.Size = new System.Drawing.Size(47, 17);
-            this.rdbEuro.TabIndex = 1;
-            this.rdbEuro.TabStop = true;
-            this.rdbEuro.Text = "Euro";
-            this.rdbEuro.UseVisualStyleBackColor = true;
             // 
             // rdbDolari
             // 
@@ -284,6 +264,28 @@ namespace Interfata_WindowsForms
             this.rdbDolari.Text = "Dolari";
             this.rdbDolari.UseVisualStyleBackColor = true;
             // 
+            // rdbEuro
+            // 
+            this.rdbEuro.AutoSize = true;
+            this.rdbEuro.Location = new System.Drawing.Point(53, 17);
+            this.rdbEuro.Name = "rdbEuro";
+            this.rdbEuro.Size = new System.Drawing.Size(47, 17);
+            this.rdbEuro.TabIndex = 1;
+            this.rdbEuro.TabStop = true;
+            this.rdbEuro.Text = "Euro";
+            this.rdbEuro.UseVisualStyleBackColor = true;
+            // 
+            // rdbRon
+            // 
+            this.rdbRon.AutoSize = true;
+            this.rdbRon.Location = new System.Drawing.Point(3, 16);
+            this.rdbRon.Name = "rdbRon";
+            this.rdbRon.Size = new System.Drawing.Size(45, 17);
+            this.rdbRon.TabIndex = 0;
+            this.rdbRon.TabStop = true;
+            this.rdbRon.Text = "Ron";
+            this.rdbRon.UseVisualStyleBackColor = true;
+            // 
             // dgwDate
             // 
             this.dgwDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -292,11 +294,33 @@ namespace Interfata_WindowsForms
             this.dgwDate.Size = new System.Drawing.Size(392, 150);
             this.dgwDate.TabIndex = 24;
             // 
+            // btnModifica
+            // 
+            this.btnModifica.Location = new System.Drawing.Point(410, 180);
+            this.btnModifica.Name = "btnModifica";
+            this.btnModifica.Size = new System.Drawing.Size(80, 23);
+            this.btnModifica.TabIndex = 25;
+            this.btnModifica.Text = "Modifica";
+            this.btnModifica.UseVisualStyleBackColor = true;
+            this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
+            // 
+            // btnSalveaza
+            // 
+            this.btnSalveaza.Location = new System.Drawing.Point(565, 428);
+            this.btnSalveaza.Name = "btnSalveaza";
+            this.btnSalveaza.Size = new System.Drawing.Size(75, 23);
+            this.btnSalveaza.TabIndex = 26;
+            this.btnSalveaza.Text = "Salveaza";
+            this.btnSalveaza.UseVisualStyleBackColor = true;
+            this.btnSalveaza.Click += new System.EventHandler(this.btnSalveaza_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 587);
+            this.Controls.Add(this.btnSalveaza);
+            this.Controls.Add(this.btnModifica);
             this.Controls.Add(this.dgwDate);
             this.Controls.Add(this.gbValuta);
             this.Controls.Add(this.tbEconomiiTotale);
@@ -356,6 +380,8 @@ namespace Interfata_WindowsForms
         private System.Windows.Forms.RadioButton rdbEuro;
         private System.Windows.Forms.RadioButton rdbRon;
         private System.Windows.Forms.DataGridView dgwDate;
+        private System.Windows.Forms.Button btnModifica;
+        private System.Windows.Forms.Button btnSalveaza;
     }
 }
 

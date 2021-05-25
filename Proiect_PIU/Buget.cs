@@ -12,11 +12,12 @@ namespace Proiect_PIU
         private const string SEPARATOR_AFISARE = " ";
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         private const char SEPARATOR_SECUNDAR_FISIER = ' ';
-       
+
         public string Tip { get; set; }
         public string Provenienta { get; set; }
         public int Suma { get; set; }
         public string Valuta { get; set; }
+        public DateTime dataActualizare{get; set;}
 
         //constructori
         public Buget()

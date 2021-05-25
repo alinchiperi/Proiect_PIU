@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Proiect_PIU;
 using System.Collections;
+using System.IO;
 
 namespace Interfata_WindowsForms
 {
@@ -33,6 +34,7 @@ namespace Interfata_WindowsForms
                     buget.setSuma(tbSuma.Text);
                     buget.Valuta = GetValuta();
                     adminBuget.AddBuget(buget);
+                    buget.dataActualizare = DateTime.Now;
                 }
                 catch (FormatException exe)
                 {
@@ -72,7 +74,7 @@ namespace Interfata_WindowsForms
             
             foreach(Buget b in Bugete)
             {
-                var linie = string.Format("{0,-5}{1,-35}{2,20}{3,10}\n", b.Tip, b.Provenienta, b.Suma, b.Valuta);
+                var linie = string.Format("{0,-11}{1,-35}{2,20}{3,10}\n", b.Tip, b.Provenienta, b.Suma, b.Valuta);
                 lstbAfisare.Items.Add(linie);
             }
         }
@@ -153,7 +155,50 @@ namespace Interfata_WindowsForms
 
         private void lstbAfisare_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            string curItem =lstbAfisare.SelectedItem.ToString();
+            string[] Items = curItem.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            cbTip.Text = Items[0];
+            tbProvenienta.Text = Items[1];
+            tbSuma.Text = Items[2];
+            if (Items[3] == "Ron")
+                rdbRon.Checked=true;
+        }
+
+        private void btnModifica_Click(object sender, EventArgs e)
+        {        
+           Buget buget = adminBuget.GetBuget(cbTip.Text, tbProvenienta.Text);
+            buget.Tip = cbTip.Text;
+            buget.Provenienta = tbProvenienta.Text;
+            buget.setSuma(tbSuma.Text);
+            buget.Valuta = GetValuta();
+            buget.dataActualizare = DateTime.Now;
+            //Modificare date
+            if (ValidareDateIntrare())
+            adminBuget.UpdateBuget(buget);
+        }
+
+        private void btnSalveaza_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|bin files (*.bin)|*.bin|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter writer = new StreamWriter(saveFileDialog1.FileName, true))
+                    for (int i = 0; i < dgwDate.Rows.Count ; i++)
+                    {
+                    for (int j = 0; j < dgwDate.Columns.Count-1; j++)
+                    {
+                        writer.Write("\t" + dgwDate.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                    }
+                    writer.WriteLine("");
+                    writer.WriteLine("-----------------------------------------------------");
+                }
+               
+            }
         }
     }
 }
