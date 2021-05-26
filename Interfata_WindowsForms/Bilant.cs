@@ -22,6 +22,16 @@ namespace Interfata_WindowsForms
         {
             InitializeComponent();
         }
+        public int SumaTotala(string tip)
+        {
+            int suma = 0;
+            ArrayList venituri = adminBuget.GetBugetTotal(tip);
+            foreach (Buget b in venituri)
+            {
+                suma += b.Suma;
+            }
+            return suma;
+        }
 
         private void btnVenitTotal_Click(object sender, EventArgs e)
         {
@@ -61,6 +71,13 @@ namespace Interfata_WindowsForms
                 suma += b.Suma;
             }
             tbEconomiiTotale.Text = suma.ToString();
+        }
+
+        private void btnGrafic_Click(object sender, EventArgs e)
+        {
+            this.chart1.Series["Venituri"].Points.AddXY(DateTime.Now,SumaTotala(VENIT));
+            this.chart1.Series["Cheltuieli"].Points.AddXY(DateTime.Now,SumaTotala(CHELTUIALA));
+            this.chart1.Series["Economii"].Points.AddXY(DateTime.Now,SumaTotala(ECONOMIE));
         }
     }
 }
