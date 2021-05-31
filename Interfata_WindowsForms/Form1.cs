@@ -29,27 +29,32 @@ namespace Interfata_WindowsForms
             {
                 try
                 {
-                    
+                    if (ckbSalariu.Checked)
+                        tbProvenienta.Text = ckbSalariu.Text;
+                    else if (ckbFacturi.Checked)
+                        tbProvenienta.Text = ckbFacturi.Text;
+          
                     Buget buget = new Buget(cbTip.Text, tbProvenienta.Text);                  
                     buget.setSuma(tbSuma.Text);
                     buget.Valuta = GetValuta();
-                    adminBuget.AddBuget(buget);
                     buget.dataActualizare = DateTime.Now;
+                    adminBuget.AddBuget(buget);
+                    
                 }
                 catch (FormatException exe)
                 {
                     MessageBox.Show("Error catch", exe.Message);
                 }
-            }
-            
+                ResetareButoane();
+            }            
         }
         public bool ValidareDateIntrare()
         {
             bool status = true;
             if (cbTip.Text == "")
             { errorProvider1.SetError(cbTip, "selectati tipul"); status = false; }
-            else if (tbProvenienta.Text == "" )
-            { errorProvider1.SetError(tbProvenienta, "Introduceti Provenienta"); status = false; }
+           /* else if (tbProvenienta.Text == "" && !ckbSalariu.Checked || !ckbFacturi.Checked )
+            { errorProvider1.SetError(tbProvenienta, "Introduceti Provenienta"); status = false; }*/
             else if (tbSuma.Text == "")
             { errorProvider1.SetError(tbSuma, "Introduceti suma de bani"); status = false; }    
             else if(Convert.ToInt32( tbSuma.Text)<0)
@@ -58,6 +63,13 @@ namespace Interfata_WindowsForms
         }
         public void ResetareButoane()
         {
+            cbTip.Text = tbProvenienta.Text = tbSuma.Text = string.Empty;
+            rdbRon.Checked = false;
+            rdbEuro.Checked = false;
+            rdbDolari.Checked = false;
+            ckbFacturi.Checked = false;
+            ckbSalariu.Checked = false;
+            errorProvider1.Clear();
 
         }
         private String GetValuta()
@@ -73,14 +85,10 @@ namespace Interfata_WindowsForms
 
         private void btnAfisare_Click(object sender, EventArgs e)
         {
-            lstbAfisare.Items.Clear();
-            ArrayList Bugete = adminBuget.GetBugetTotal();                         
-            
-            foreach(Buget b in Bugete)
-            {
-                var linie = string.Format("{0,-11}{1,-35}{2,20}{3,10}\n", b.Tip, b.Provenienta, b.Suma, b.Valuta);
-                lstbAfisare.Items.Add(linie);
-            }
+           
+            ArrayList Bugete = adminBuget.GetBugetTotal();
+            dgwDate.DataSource = Bugete;
+                  
         }
 
         private void btnVenituri_Click(object sender, EventArgs e)
@@ -108,22 +116,11 @@ namespace Interfata_WindowsForms
             dgwDate.DataSource = venituri;
         }
 
-        private void lstbAfisare_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string curItem =lstbAfisare.SelectedItem.ToString();
-            string[] Items = curItem.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-            cbTip.Text = Items[0];
-            tbProvenienta.Text = Items[1];
-            tbSuma.Text = Items[2];
-            if (Items[3] == "Ron")
-                rdbRon.Checked=true;
-        }
-
         private void btnModifica_Click(object sender, EventArgs e)
         {        
            Buget buget = adminBuget.GetBuget(cbTip.Text, tbProvenienta.Text);
-            buget.Tip = cbTip.Text;
-            buget.Provenienta = tbProvenienta.Text;
+            /*buget.Tip = cbTip.Text;
+            buget.Provenienta = tbProvenienta.Text;*/
             buget.setSuma(tbSuma.Text);
             buget.Valuta = GetValuta();
             buget.dataActualizare = DateTime.Now;
@@ -160,6 +157,32 @@ namespace Interfata_WindowsForms
         {
             Bilant bilant = new Bilant();
             bilant.Show();
+        }
+
+        private void dgwDate_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgwDate.Rows[e.RowIndex].Cells[e.ColumnIndex].Value!=null)
+            {
+                cbTip.Text = dgwDate.Rows[e.RowIndex].Cells["Tip"].FormattedValue.ToString();
+                tbProvenienta.Text= dgwDate.Rows[e.RowIndex].Cells["Provenienta"].FormattedValue.ToString();
+                tbSuma.Text= dgwDate.Rows[e.RowIndex].Cells["Suma"].FormattedValue.ToString();
+                if (dgwDate.Rows[e.RowIndex].Cells["Valuta"].FormattedValue.ToString() == "Ron")
+                    rdbRon.Checked = true;
+            }
+        }
+
+        private void BtnCauta_Click(object sender, EventArgs e)
+        {
+            dgwDate.DataSource = null;
+            dgwDate.Refresh();
+            string prov = tbProvenienta.Text;
+            ArrayList Bugete = adminBuget.GetBugetTotal();
+            ArrayList filtrare = new ArrayList();
+            foreach (Buget b in Bugete)
+                if (b.Provenienta == prov)
+                    filtrare.Add(b);
+            dgwDate.DataSource = filtrare;
+            ResetareButoane();
         }
     }
 }

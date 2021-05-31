@@ -76,10 +76,9 @@ namespace Proiect_PIU
         //functie pentru a formata un buget pentru scrierea in fisier
         public string ConversieLaSir_PentruScriereInFisier()
         {
-            string sNote = string.Empty;
-            
-            string s = string.Format("{1}{0}{2}{0}{3}{0}{4}",
-                SEPARATOR_PRINCIPAL_FISIER, Tip, (Provenienta ?? " NECUNOSCUT "), Suma, Valuta );
+                       
+            string s = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}",
+                SEPARATOR_PRINCIPAL_FISIER, Tip, (Provenienta ?? " NECUNOSCUT "), Suma, Valuta, dataActualizare );
 
             return s;
         }

@@ -41,7 +41,6 @@ namespace Interfata_WindowsForms
             this.btnAfisare = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbTip = new System.Windows.Forms.ComboBox();
-            this.lstbAfisare = new System.Windows.Forms.ListBox();
             this.btnVenituri = new System.Windows.Forms.Button();
             this.btnCheltuieli = new System.Windows.Forms.Button();
             this.btnEconomii = new System.Windows.Forms.Button();
@@ -54,6 +53,9 @@ namespace Interfata_WindowsForms
             this.btnSalveaza = new System.Windows.Forms.Button();
             this.btnBilant = new System.Windows.Forms.Button();
             this.lblGestiune = new System.Windows.Forms.Label();
+            this.ckbSalariu = new System.Windows.Forms.CheckBox();
+            this.ckbFacturi = new System.Windows.Forms.CheckBox();
+            this.BtnCauta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbValuta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwDate)).BeginInit();
@@ -80,7 +82,7 @@ namespace Interfata_WindowsForms
             // lblSuma
             // 
             this.lblSuma.AutoSize = true;
-            this.lblSuma.Location = new System.Drawing.Point(68, 184);
+            this.lblSuma.Location = new System.Drawing.Point(84, 227);
             this.lblSuma.Name = "lblSuma";
             this.lblSuma.Size = new System.Drawing.Size(34, 13);
             this.lblSuma.TabIndex = 2;
@@ -89,7 +91,7 @@ namespace Interfata_WindowsForms
             // lblValuta
             // 
             this.lblValuta.AutoSize = true;
-            this.lblValuta.Location = new System.Drawing.Point(67, 215);
+            this.lblValuta.Location = new System.Drawing.Point(84, 275);
             this.lblValuta.Name = "lblValuta";
             this.lblValuta.Size = new System.Drawing.Size(37, 13);
             this.lblValuta.TabIndex = 3;
@@ -104,7 +106,7 @@ namespace Interfata_WindowsForms
             // 
             // tbSuma
             // 
-            this.tbSuma.Location = new System.Drawing.Point(141, 181);
+            this.tbSuma.Location = new System.Drawing.Point(141, 224);
             this.tbSuma.Name = "tbSuma";
             this.tbSuma.Size = new System.Drawing.Size(100, 20);
             this.tbSuma.TabIndex = 6;
@@ -112,9 +114,9 @@ namespace Interfata_WindowsForms
             // btnAdauga
             // 
             this.btnAdauga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAdauga.Location = new System.Drawing.Point(331, 250);
+            this.btnAdauga.Location = new System.Drawing.Point(118, 346);
             this.btnAdauga.Name = "btnAdauga";
-            this.btnAdauga.Size = new System.Drawing.Size(75, 23);
+            this.btnAdauga.Size = new System.Drawing.Size(123, 43);
             this.btnAdauga.TabIndex = 8;
             this.btnAdauga.Text = "Adauga";
             this.btnAdauga.UseVisualStyleBackColor = false;
@@ -122,7 +124,7 @@ namespace Interfata_WindowsForms
             // 
             // btnAfisare
             // 
-            this.btnAfisare.Location = new System.Drawing.Point(412, 250);
+            this.btnAfisare.Location = new System.Drawing.Point(339, 327);
             this.btnAfisare.Name = "btnAfisare";
             this.btnAfisare.Size = new System.Drawing.Size(75, 23);
             this.btnAfisare.TabIndex = 10;
@@ -146,19 +148,10 @@ namespace Interfata_WindowsForms
             this.cbTip.Size = new System.Drawing.Size(100, 21);
             this.cbTip.TabIndex = 11;
             // 
-            // lstbAfisare
-            // 
-            this.lstbAfisare.FormattingEnabled = true;
-            this.lstbAfisare.Location = new System.Drawing.Point(300, 97);
-            this.lstbAfisare.Name = "lstbAfisare";
-            this.lstbAfisare.Size = new System.Drawing.Size(392, 147);
-            this.lstbAfisare.TabIndex = 13;
-            this.lstbAfisare.SelectedIndexChanged += new System.EventHandler(this.lstbAfisare_SelectedIndexChanged);
-            // 
             // btnVenituri
             // 
             this.btnVenituri.BackColor = System.Drawing.Color.LightGreen;
-            this.btnVenituri.Location = new System.Drawing.Point(194, 328);
+            this.btnVenituri.Location = new System.Drawing.Point(339, 356);
             this.btnVenituri.Name = "btnVenituri";
             this.btnVenituri.Size = new System.Drawing.Size(75, 23);
             this.btnVenituri.TabIndex = 14;
@@ -170,7 +163,7 @@ namespace Interfata_WindowsForms
             // 
             this.btnCheltuieli.BackColor = System.Drawing.Color.Crimson;
             this.btnCheltuieli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCheltuieli.Location = new System.Drawing.Point(113, 328);
+            this.btnCheltuieli.Location = new System.Drawing.Point(420, 356);
             this.btnCheltuieli.Name = "btnCheltuieli";
             this.btnCheltuieli.Size = new System.Drawing.Size(75, 23);
             this.btnCheltuieli.TabIndex = 15;
@@ -180,7 +173,7 @@ namespace Interfata_WindowsForms
             // 
             // btnEconomii
             // 
-            this.btnEconomii.Location = new System.Drawing.Point(144, 357);
+            this.btnEconomii.Location = new System.Drawing.Point(501, 356);
             this.btnEconomii.Name = "btnEconomii";
             this.btnEconomii.Size = new System.Drawing.Size(75, 23);
             this.btnEconomii.TabIndex = 16;
@@ -193,7 +186,7 @@ namespace Interfata_WindowsForms
             this.gbValuta.Controls.Add(this.rdbDolari);
             this.gbValuta.Controls.Add(this.rdbEuro);
             this.gbValuta.Controls.Add(this.rdbRon);
-            this.gbValuta.Location = new System.Drawing.Point(141, 216);
+            this.gbValuta.Location = new System.Drawing.Point(141, 259);
             this.gbValuta.Name = "gbValuta";
             this.gbValuta.Size = new System.Drawing.Size(100, 61);
             this.gbValuta.TabIndex = 23;
@@ -235,14 +228,15 @@ namespace Interfata_WindowsForms
             // dgwDate
             // 
             this.dgwDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwDate.Location = new System.Drawing.Point(276, 303);
+            this.dgwDate.Location = new System.Drawing.Point(281, 90);
             this.dgwDate.Name = "dgwDate";
-            this.dgwDate.Size = new System.Drawing.Size(392, 150);
+            this.dgwDate.Size = new System.Drawing.Size(469, 198);
             this.dgwDate.TabIndex = 24;
+            this.dgwDate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwDate_CellContentClick);
             // 
             // btnModifica
             // 
-            this.btnModifica.Location = new System.Drawing.Point(493, 250);
+            this.btnModifica.Location = new System.Drawing.Point(420, 327);
             this.btnModifica.Name = "btnModifica";
             this.btnModifica.Size = new System.Drawing.Size(80, 23);
             this.btnModifica.TabIndex = 25;
@@ -252,7 +246,7 @@ namespace Interfata_WindowsForms
             // 
             // btnSalveaza
             // 
-            this.btnSalveaza.Location = new System.Drawing.Point(593, 422);
+            this.btnSalveaza.Location = new System.Drawing.Point(501, 327);
             this.btnSalveaza.Name = "btnSalveaza";
             this.btnSalveaza.Size = new System.Drawing.Size(75, 23);
             this.btnSalveaza.TabIndex = 26;
@@ -262,9 +256,9 @@ namespace Interfata_WindowsForms
             // 
             // btnBilant
             // 
-            this.btnBilant.Location = new System.Drawing.Point(136, 422);
+            this.btnBilant.Location = new System.Drawing.Point(582, 356);
             this.btnBilant.Name = "btnBilant";
-            this.btnBilant.Size = new System.Drawing.Size(105, 39);
+            this.btnBilant.Size = new System.Drawing.Size(75, 23);
             this.btnBilant.TabIndex = 27;
             this.btnBilant.Text = "Bilant";
             this.btnBilant.UseVisualStyleBackColor = true;
@@ -281,12 +275,45 @@ namespace Interfata_WindowsForms
             this.lblGestiune.TabIndex = 28;
             this.lblGestiune.Text = "GESTIUNE VENIT";
             // 
+            // ckbSalariu
+            // 
+            this.ckbSalariu.AutoSize = true;
+            this.ckbSalariu.Location = new System.Drawing.Point(141, 167);
+            this.ckbSalariu.Name = "ckbSalariu";
+            this.ckbSalariu.Size = new System.Drawing.Size(58, 17);
+            this.ckbSalariu.TabIndex = 29;
+            this.ckbSalariu.Text = "Salariu";
+            this.ckbSalariu.UseVisualStyleBackColor = true;
+            // 
+            // ckbFacturi
+            // 
+            this.ckbFacturi.AutoSize = true;
+            this.ckbFacturi.Location = new System.Drawing.Point(141, 190);
+            this.ckbFacturi.Name = "ckbFacturi";
+            this.ckbFacturi.Size = new System.Drawing.Size(58, 17);
+            this.ckbFacturi.TabIndex = 30;
+            this.ckbFacturi.Text = "Facturi";
+            this.ckbFacturi.UseVisualStyleBackColor = true;
+            // 
+            // BtnCauta
+            // 
+            this.BtnCauta.Location = new System.Drawing.Point(582, 327);
+            this.BtnCauta.Name = "BtnCauta";
+            this.BtnCauta.Size = new System.Drawing.Size(75, 23);
+            this.BtnCauta.TabIndex = 31;
+            this.BtnCauta.Text = "Cauta";
+            this.BtnCauta.UseVisualStyleBackColor = true;
+            this.BtnCauta.Click += new System.EventHandler(this.BtnCauta_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(777, 498);
+            this.Controls.Add(this.BtnCauta);
+            this.Controls.Add(this.ckbFacturi);
+            this.Controls.Add(this.ckbSalariu);
             this.Controls.Add(this.lblGestiune);
             this.Controls.Add(this.btnBilant);
             this.Controls.Add(this.btnSalveaza);
@@ -296,7 +323,6 @@ namespace Interfata_WindowsForms
             this.Controls.Add(this.btnEconomii);
             this.Controls.Add(this.btnCheltuieli);
             this.Controls.Add(this.btnVenituri);
-            this.Controls.Add(this.lstbAfisare);
             this.Controls.Add(this.cbTip);
             this.Controls.Add(this.btnAfisare);
             this.Controls.Add(this.btnAdauga);
@@ -329,7 +355,6 @@ namespace Interfata_WindowsForms
         private System.Windows.Forms.Button btnAfisare;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ComboBox cbTip;
-        private System.Windows.Forms.ListBox lstbAfisare;
         private System.Windows.Forms.Button btnCheltuieli;
         private System.Windows.Forms.Button btnVenituri;
         private System.Windows.Forms.Button btnEconomii;
@@ -342,6 +367,9 @@ namespace Interfata_WindowsForms
         private System.Windows.Forms.Button btnSalveaza;
         private System.Windows.Forms.Button btnBilant;
         private System.Windows.Forms.Label lblGestiune;
+        private System.Windows.Forms.CheckBox ckbFacturi;
+        private System.Windows.Forms.CheckBox ckbSalariu;
+        private System.Windows.Forms.Button BtnCauta;
     }
 }
 
