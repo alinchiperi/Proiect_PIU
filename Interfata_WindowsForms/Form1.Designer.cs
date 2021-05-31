@@ -284,6 +284,7 @@ namespace Interfata_WindowsForms
             this.ckbSalariu.TabIndex = 29;
             this.ckbSalariu.Text = "Salariu";
             this.ckbSalariu.UseVisualStyleBackColor = true;
+            this.ckbSalariu.CheckedChanged += new System.EventHandler(this.ckbSalariu_CheckedChanged);
             // 
             // ckbFacturi
             // 
@@ -294,6 +295,7 @@ namespace Interfata_WindowsForms
             this.ckbFacturi.TabIndex = 30;
             this.ckbFacturi.Text = "Facturi";
             this.ckbFacturi.UseVisualStyleBackColor = true;
+            this.ckbFacturi.CheckedChanged += new System.EventHandler(this.ckbFacturi_CheckedChanged);
             // 
             // BtnCauta
             // 

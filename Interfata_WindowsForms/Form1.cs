@@ -29,11 +29,8 @@ namespace Interfata_WindowsForms
             {
                 try
                 {
-                    if (ckbSalariu.Checked)
-                        tbProvenienta.Text = ckbSalariu.Text;
-                    else if (ckbFacturi.Checked)
-                        tbProvenienta.Text = ckbFacturi.Text;
-          
+                    
+                            
                     Buget buget = new Buget(cbTip.Text, tbProvenienta.Text);                  
                     buget.setSuma(tbSuma.Text);
                     buget.Valuta = GetValuta();
@@ -53,8 +50,8 @@ namespace Interfata_WindowsForms
             bool status = true;
             if (cbTip.Text == "")
             { errorProvider1.SetError(cbTip, "selectati tipul"); status = false; }
-           /* else if (tbProvenienta.Text == "" && !ckbSalariu.Checked || !ckbFacturi.Checked )
-            { errorProvider1.SetError(tbProvenienta, "Introduceti Provenienta"); status = false; }*/
+           else if (tbProvenienta.Text == "" )
+            { errorProvider1.SetError(tbProvenienta, "Introduceti Provenienta"); status = false; }
             else if (tbSuma.Text == "")
             { errorProvider1.SetError(tbSuma, "Introduceti suma de bani"); status = false; }    
             else if(Convert.ToInt32( tbSuma.Text)<0)
@@ -127,6 +124,7 @@ namespace Interfata_WindowsForms
             //Modificare date
             if (ValidareDateIntrare())
             adminBuget.UpdateBuget(buget);
+            ResetareButoane();
         }
 
         private void btnSalveaza_Click(object sender, EventArgs e)
@@ -175,14 +173,27 @@ namespace Interfata_WindowsForms
         {
             dgwDate.DataSource = null;
             dgwDate.Refresh();
-            string prov = tbProvenienta.Text;
             ArrayList Bugete = adminBuget.GetBugetTotal();
             ArrayList filtrare = new ArrayList();
+
             foreach (Buget b in Bugete)
-                if (b.Provenienta == prov)
+                if (b.Provenienta == tbProvenienta.Text)
                     filtrare.Add(b);
-            dgwDate.DataSource = filtrare;
+                dgwDate.DataSource = filtrare;
             ResetareButoane();
+        }
+
+        private void ckbSalariu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbSalariu.Checked == true)
+                tbProvenienta.Text = ckbSalariu.Text;
+        }
+
+        private void ckbFacturi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbFacturi.Checked == true)
+                tbProvenienta.Text = ckbFacturi.Text;
+
         }
     }
 }

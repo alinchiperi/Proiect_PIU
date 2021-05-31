@@ -39,6 +39,7 @@ namespace Proiect_PIU
             Provenienta = dateFisier[(int)CampuriBuget.PROVENIENTA];
             setSuma((dateFisier[(int)CampuriBuget.SUMA]));
             Valuta = dateFisier[(int)CampuriBuget.VALUTA];
+            dataActualizare = DateTime.Parse( (dateFisier[(int)CampuriBuget.DATA]));
         }
         public Buget(string _tip, string _provenienta )
         {

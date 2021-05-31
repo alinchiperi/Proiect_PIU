@@ -6,7 +6,8 @@ namespace Proiect_PIU
         TIP=0,
         PROVENIENTA = 1,
         SUMA=2,
-        VALUTA=3
+        VALUTA=3,
+        DATA=4
     };
     public enum Valuta
     {
