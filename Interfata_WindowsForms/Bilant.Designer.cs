@@ -100,7 +100,7 @@ namespace Interfata_WindowsForms
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(399, 37);
+            this.chart1.Location = new System.Drawing.Point(402, 37);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -122,7 +122,7 @@ namespace Interfata_WindowsForms
             // btnGrafic
             // 
             this.btnGrafic.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnGrafic.Location = new System.Drawing.Point(155, 223);
+            this.btnGrafic.Location = new System.Drawing.Point(152, 139);
             this.btnGrafic.Name = "btnGrafic";
             this.btnGrafic.Size = new System.Drawing.Size(133, 72);
             this.btnGrafic.TabIndex = 28;

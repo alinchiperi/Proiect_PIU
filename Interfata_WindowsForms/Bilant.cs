@@ -79,5 +79,7 @@ namespace Interfata_WindowsForms
             this.chart1.Series["Cheltuieli"].Points.AddXY(DateTime.Now,SumaTotala(CHELTUIALA));
             this.chart1.Series["Economii"].Points.AddXY(DateTime.Now,SumaTotala(ECONOMIE));
         }
+
+       
     }
 }
