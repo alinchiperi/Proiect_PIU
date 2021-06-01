@@ -114,7 +114,7 @@ namespace Interfata_WindowsForms
             // btnAdauga
             // 
             this.btnAdauga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAdauga.Location = new System.Drawing.Point(118, 346);
+            this.btnAdauga.Location = new System.Drawing.Point(95, 346);
             this.btnAdauga.Name = "btnAdauga";
             this.btnAdauga.Size = new System.Drawing.Size(123, 43);
             this.btnAdauga.TabIndex = 8;

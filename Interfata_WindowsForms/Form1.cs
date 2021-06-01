@@ -45,6 +45,20 @@ namespace Interfata_WindowsForms
                 ResetareButoane();
             }            
         }
+        public bool BugetUnic()
+        {
+            bool status = true;
+            ArrayList Bugete = adminBuget.GetBugetTotal();
+            string tip = cbTip.Text;
+            string prov = tbProvenienta.Text;
+            foreach(Buget b in Bugete)
+            {
+                if (b.Tip == tip && b.Provenienta == prov)
+                    status = false;
+            }
+            return status;
+
+        }
         public bool ValidareDateIntrare()
         {
             bool status = true;
@@ -56,6 +70,9 @@ namespace Interfata_WindowsForms
             { errorProvider1.SetError(tbSuma, "Introduceti suma de bani"); status = false; }    
             else if(Convert.ToInt32( tbSuma.Text)<0)
             { errorProvider1.SetError(tbSuma, "Suma trebuie sa fie pozitiva"); status = false; }
+            else if(!BugetUnic())
+            { errorProvider1.SetError(tbProvenienta, "Provenienta deja folosita"); status = false; }
+        
             return status;
         }
         public void ResetareButoane()
