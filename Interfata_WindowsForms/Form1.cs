@@ -203,13 +203,19 @@ namespace Interfata_WindowsForms
         private void ckbSalariu_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbSalariu.Checked == true)
+            {
                 tbProvenienta.Text = ckbSalariu.Text;
+                ckbFacturi.Checked = false;
+            }
         }
 
         private void ckbFacturi_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbFacturi.Checked == true)
+            {
                 tbProvenienta.Text = ckbFacturi.Text;
+                ckbSalariu.Checked = false;
+            }
 
         }
     }

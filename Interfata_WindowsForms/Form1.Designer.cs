@@ -124,9 +124,9 @@ namespace Interfata_WindowsForms
             // 
             // btnAfisare
             // 
-            this.btnAfisare.Location = new System.Drawing.Point(339, 327);
+            this.btnAfisare.Location = new System.Drawing.Point(316, 321);
             this.btnAfisare.Name = "btnAfisare";
-            this.btnAfisare.Size = new System.Drawing.Size(75, 23);
+            this.btnAfisare.Size = new System.Drawing.Size(80, 34);
             this.btnAfisare.TabIndex = 10;
             this.btnAfisare.Text = "Afisare";
             this.btnAfisare.UseVisualStyleBackColor = true;
@@ -151,9 +151,9 @@ namespace Interfata_WindowsForms
             // btnVenituri
             // 
             this.btnVenituri.BackColor = System.Drawing.Color.LightGreen;
-            this.btnVenituri.Location = new System.Drawing.Point(339, 356);
+            this.btnVenituri.Location = new System.Drawing.Point(316, 356);
             this.btnVenituri.Name = "btnVenituri";
-            this.btnVenituri.Size = new System.Drawing.Size(75, 23);
+            this.btnVenituri.Size = new System.Drawing.Size(80, 33);
             this.btnVenituri.TabIndex = 14;
             this.btnVenituri.Text = "Venituri";
             this.btnVenituri.UseVisualStyleBackColor = false;
@@ -163,9 +163,9 @@ namespace Interfata_WindowsForms
             // 
             this.btnCheltuieli.BackColor = System.Drawing.Color.Crimson;
             this.btnCheltuieli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCheltuieli.Location = new System.Drawing.Point(420, 356);
+            this.btnCheltuieli.Location = new System.Drawing.Point(401, 356);
             this.btnCheltuieli.Name = "btnCheltuieli";
-            this.btnCheltuieli.Size = new System.Drawing.Size(75, 23);
+            this.btnCheltuieli.Size = new System.Drawing.Size(78, 33);
             this.btnCheltuieli.TabIndex = 15;
             this.btnCheltuieli.Text = "Cheltuieli";
             this.btnCheltuieli.UseVisualStyleBackColor = false;
@@ -173,12 +173,13 @@ namespace Interfata_WindowsForms
             // 
             // btnEconomii
             // 
-            this.btnEconomii.Location = new System.Drawing.Point(501, 356);
+            this.btnEconomii.BackColor = System.Drawing.Color.Gold;
+            this.btnEconomii.Location = new System.Drawing.Point(485, 356);
             this.btnEconomii.Name = "btnEconomii";
-            this.btnEconomii.Size = new System.Drawing.Size(75, 23);
+            this.btnEconomii.Size = new System.Drawing.Size(77, 33);
             this.btnEconomii.TabIndex = 16;
             this.btnEconomii.Text = "Economii";
-            this.btnEconomii.UseVisualStyleBackColor = true;
+            this.btnEconomii.UseVisualStyleBackColor = false;
             this.btnEconomii.Click += new System.EventHandler(this.btnEconomii_Click);
             // 
             // gbValuta
@@ -236,9 +237,9 @@ namespace Interfata_WindowsForms
             // 
             // btnModifica
             // 
-            this.btnModifica.Location = new System.Drawing.Point(420, 327);
+            this.btnModifica.Location = new System.Drawing.Point(402, 321);
             this.btnModifica.Name = "btnModifica";
-            this.btnModifica.Size = new System.Drawing.Size(80, 23);
+            this.btnModifica.Size = new System.Drawing.Size(77, 34);
             this.btnModifica.TabIndex = 25;
             this.btnModifica.Text = "Modifica";
             this.btnModifica.UseVisualStyleBackColor = true;
@@ -246,9 +247,9 @@ namespace Interfata_WindowsForms
             // 
             // btnSalveaza
             // 
-            this.btnSalveaza.Location = new System.Drawing.Point(501, 327);
+            this.btnSalveaza.Location = new System.Drawing.Point(568, 321);
             this.btnSalveaza.Name = "btnSalveaza";
-            this.btnSalveaza.Size = new System.Drawing.Size(75, 23);
+            this.btnSalveaza.Size = new System.Drawing.Size(77, 34);
             this.btnSalveaza.TabIndex = 26;
             this.btnSalveaza.Text = "Salveaza";
             this.btnSalveaza.UseVisualStyleBackColor = true;
@@ -256,12 +257,13 @@ namespace Interfata_WindowsForms
             // 
             // btnBilant
             // 
-            this.btnBilant.Location = new System.Drawing.Point(582, 356);
+            this.btnBilant.BackColor = System.Drawing.Color.DarkViolet;
+            this.btnBilant.Location = new System.Drawing.Point(568, 356);
             this.btnBilant.Name = "btnBilant";
-            this.btnBilant.Size = new System.Drawing.Size(75, 23);
+            this.btnBilant.Size = new System.Drawing.Size(77, 33);
             this.btnBilant.TabIndex = 27;
             this.btnBilant.Text = "Bilant";
-            this.btnBilant.UseVisualStyleBackColor = true;
+            this.btnBilant.UseVisualStyleBackColor = false;
             this.btnBilant.Click += new System.EventHandler(this.btnBilant_Click);
             // 
             // lblGestiune
@@ -299,9 +301,9 @@ namespace Interfata_WindowsForms
             // 
             // BtnCauta
             // 
-            this.BtnCauta.Location = new System.Drawing.Point(582, 327);
+            this.BtnCauta.Location = new System.Drawing.Point(487, 321);
             this.BtnCauta.Name = "BtnCauta";
-            this.BtnCauta.Size = new System.Drawing.Size(75, 23);
+            this.BtnCauta.Size = new System.Drawing.Size(75, 34);
             this.BtnCauta.TabIndex = 31;
             this.BtnCauta.Text = "Cauta";
             this.BtnCauta.UseVisualStyleBackColor = true;
