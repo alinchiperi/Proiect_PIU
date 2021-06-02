@@ -62,6 +62,19 @@ namespace Interfata_WindowsForms
         public bool ValidareDateIntrare()
         {
             bool status = true;
+            RadioButton rb = null;
+            if(rdbRon.Checked)
+            {
+                rb = rdbRon;
+            }
+            if (rdbEuro.Checked)
+            {
+                rb = rdbEuro;
+            }
+            if (rdbDolari.Checked)
+            {
+                rb = rdbDolari;
+            }
             if (cbTip.Text == "")
             { errorProvider1.SetError(cbTip, "selectati tipul"); status = false; }
            else if (tbProvenienta.Text == "" )
@@ -72,6 +85,10 @@ namespace Interfata_WindowsForms
             { errorProvider1.SetError(tbSuma, "Suma trebuie sa fie pozitiva"); status = false; }
             else if(!BugetUnic())
             { errorProvider1.SetError(tbProvenienta, "Provenienta deja folosita"); status = false; }
+            else if(rb==null)
+            {
+                errorProvider1.SetError(lblValuta, "selectati o valuta"); status = false;
+            }
         
             return status;
         }
@@ -102,7 +119,7 @@ namespace Interfata_WindowsForms
            
             ArrayList Bugete = adminBuget.GetBugetTotal();
             dgwDate.DataSource = Bugete;
-                  
+            ResetareButoane();
         }
 
         private void btnVenituri_Click(object sender, EventArgs e)
@@ -133,13 +150,12 @@ namespace Interfata_WindowsForms
         private void btnModifica_Click(object sender, EventArgs e)
         {        
            Buget buget = adminBuget.GetBuget(cbTip.Text, tbProvenienta.Text);
-            /*buget.Tip = cbTip.Text;
-            buget.Provenienta = tbProvenienta.Text;*/
+            buget.Tip = cbTip.Text;
+            buget.Provenienta = tbProvenienta.Text;
             buget.setSuma(tbSuma.Text);
             buget.Valuta = GetValuta();
             buget.dataActualizare = DateTime.Now;
             //Modificare date
-            if (ValidareDateIntrare())
             adminBuget.UpdateBuget(buget);
             ResetareButoane();
         }
@@ -157,7 +173,7 @@ namespace Interfata_WindowsForms
                 using (StreamWriter writer = new StreamWriter(saveFileDialog1.FileName, true))
                     for (int i = 0; i < dgwDate.Rows.Count ; i++)
                     {
-                    for (int j = 0; j < dgwDate.Columns.Count-1; j++)
+                    for (int j = 0; j < dgwDate.Columns.Count; j++)
                     {
                         writer.Write("\t" + dgwDate.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
                     }
@@ -183,6 +199,10 @@ namespace Interfata_WindowsForms
                 tbSuma.Text= dgwDate.Rows[e.RowIndex].Cells["Suma"].FormattedValue.ToString();
                 if (dgwDate.Rows[e.RowIndex].Cells["Valuta"].FormattedValue.ToString() == "Ron")
                     rdbRon.Checked = true;
+                else if (dgwDate.Rows[e.RowIndex].Cells["Valuta"].FormattedValue.ToString() == "Euro")
+                    rdbEuro.Checked = true;
+                else if (dgwDate.Rows[e.RowIndex].Cells["Valuta"].FormattedValue.ToString() == "Dolari")
+                    rdbDolari.Checked = true;
             }
         }
 

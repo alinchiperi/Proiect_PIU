@@ -229,9 +229,9 @@ namespace Interfata_WindowsForms
             // dgwDate
             // 
             this.dgwDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwDate.Location = new System.Drawing.Point(281, 90);
+            this.dgwDate.Location = new System.Drawing.Point(284, 82);
             this.dgwDate.Name = "dgwDate";
-            this.dgwDate.Size = new System.Drawing.Size(469, 198);
+            this.dgwDate.Size = new System.Drawing.Size(481, 211);
             this.dgwDate.TabIndex = 24;
             this.dgwDate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwDate_CellContentClick);
             // 
@@ -273,9 +273,9 @@ namespace Interfata_WindowsForms
             this.lblGestiune.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblGestiune.Location = new System.Drawing.Point(27, 9);
             this.lblGestiune.Name = "lblGestiune";
-            this.lblGestiune.Size = new System.Drawing.Size(238, 32);
+            this.lblGestiune.Size = new System.Drawing.Size(252, 32);
             this.lblGestiune.TabIndex = 28;
-            this.lblGestiune.Text = "GESTIUNE VENIT";
+            this.lblGestiune.Text = "GESTIUNE BUGET";
             // 
             // ckbSalariu
             // 

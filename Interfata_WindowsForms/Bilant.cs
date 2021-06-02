@@ -36,43 +36,11 @@ namespace Interfata_WindowsForms
         private void btnVenitTotal_Click(object sender, EventArgs e)
         {
             tbVenitTotal.Clear();
-            int suma = 0;
-            ArrayList venituri = adminBuget.GetBugetTotal(VENIT);
-            foreach (Buget b in venituri)
-            {
-                suma += b.Suma;
-            }
-            tbVenitTotal.Text = suma.ToString();
-        }
-        private void btnCheltuieliToatale_Click(object sender, EventArgs e)
-        {
-            tbCheltuieliTotale.Clear();
-            int suma = 0;
-            ArrayList venituri = adminBuget.GetBugetTotal(CHELTUIALA);
-            foreach (Buget b in venituri)
-            {
-                suma += b.Suma;
-            }
-            foreach (Buget b in venituri)
-            {
-                suma += b.Suma;
-            }
-            tbCheltuieliTotale.Text = suma.ToString();
-
+           
+            tbVenitTotal.Text = SumaTotala(VENIT).ToString();
         }
 
-        private void btnEconomiiTotale_Click(object sender, EventArgs e)
-        {
-            tbEconomiiTotale.Clear();
-            int suma = 0;
-            ArrayList venituri = adminBuget.GetBugetTotal(ECONOMIE);
-            foreach (Buget b in venituri)
-            {
-                suma += b.Suma;
-            }
-            tbEconomiiTotale.Text = suma.ToString();
-        }
-
+      
         private void btnGrafic_Click(object sender, EventArgs e)
         {
             this.chart1.Series["Venituri"].Points.AddXY(DateTime.Now,SumaTotala(VENIT));
@@ -80,6 +48,18 @@ namespace Interfata_WindowsForms
             this.chart1.Series["Economii"].Points.AddXY(DateTime.Now,SumaTotala(ECONOMIE));
         }
 
-       
+        private void btnCheltuieliToatale_Click_1(object sender, EventArgs e)
+        {
+            tbCheltuieliTotale.Clear();          
+            tbCheltuieliTotale.Text = SumaTotala(CHELTUIALA).ToString();
+
+        }
+
+        private void btnEconomiiTotale_Click_1(object sender, EventArgs e)
+        {
+            tbEconomiiTotale.Clear();
+
+            tbEconomiiTotale.Text = SumaTotala(ECONOMIE).ToString();
+        }
     }
 }

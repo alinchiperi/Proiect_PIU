@@ -77,6 +77,7 @@ namespace Interfata_WindowsForms
             this.btnEconomiiTotale.TabIndex = 25;
             this.btnEconomiiTotale.Text = "Economii Totale";
             this.btnEconomiiTotale.UseVisualStyleBackColor = true;
+            this.btnEconomiiTotale.Click += new System.EventHandler(this.btnEconomiiTotale_Click_1);
             // 
             // tbCheltuieliTotale
             // 
@@ -93,6 +94,7 @@ namespace Interfata_WindowsForms
             this.btnCheltuieliToatale.TabIndex = 23;
             this.btnCheltuieliToatale.Text = "Cheltuieli Totale";
             this.btnCheltuieliToatale.UseVisualStyleBackColor = true;
+            this.btnCheltuieliToatale.Click += new System.EventHandler(this.btnCheltuieliToatale_Click_1);
             // 
             // chart1
             // 
@@ -100,7 +102,7 @@ namespace Interfata_WindowsForms
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(402, 37);
+            this.chart1.Location = new System.Drawing.Point(392, 21);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -115,7 +117,7 @@ namespace Interfata_WindowsForms
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(340, 280);
+            this.chart1.Size = new System.Drawing.Size(396, 294);
             this.chart1.TabIndex = 27;
             this.chart1.Text = "chart1";
             // 
